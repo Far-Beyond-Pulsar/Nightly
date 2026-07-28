@@ -10,15 +10,16 @@ env:
   CARGO_NET_RETRY: 3
 
 jobs:
-  build:
-    name: x64 + ARM64 Windows
+  # ── Record upstream commit (single source of truth for all matrix jobs) ──
+  resolve:
+    name: Resolve commit
     runs-on: windows-latest
+    outputs:
+      sha: ${{ steps.commit.outputs.sha }}
+      short: ${{ steps.commit.outputs.short }}
+      message: ${{ steps.commit.outputs.message }}
+      date: ${{ steps.commit.outputs.date }}
     steps:
-      # ── 1. Checkout Nightly repo at root ─────────────────────────────
-      - name: Checkout Nightly
-        uses: actions/checkout@v4
-
-      # ── 2. Checkout Pulsar-Native + submodules into code/ ────────────
       - name: Checkout Pulsar-Native
         uses: actions/checkout@v4
         with:
@@ -28,11 +29,6 @@ jobs:
           submodules: recursive
           fetch-depth: 1
 
-      # ── 3. Install ARM64 target ──────────────────────────────────────
-      - name: Install ARM64 target
-        run: rustup target add aarch64-pc-windows-msvc
-
-      # ── 4. Record commit info ────────────────────────────────────────
       - name: Record commit
         id: commit
         shell: bash
@@ -47,34 +43,89 @@ jobs:
           echo "message=$MSG" >> "$GITHUB_OUTPUT"
           echo "date=$DATE" >> "$GITHUB_OUTPUT"
 
-      # ── 5. Build x64 ─────────────────────────────────────────────────
-      - name: Build x86_64-pc-windows-msvc
+      - name: Save commit log
+        shell: bash
+        working-directory: code
+        run: git log --oneline -30 > ../commits.txt
+
+      - name: Upload commit log
+        uses: actions/upload-artifact@v4
+        with:
+          name: commits
+          path: commits.txt
+
+  # ── Build matrix: x64 + ARM64 in parallel ───────────────────────────────
+  build:
+    name: ${{ matrix.label }}
+    runs-on: windows-latest
+    needs: resolve
+    strategy:
+      matrix:
+        include:
+          - label: x86_64-pc-windows-msvc
+            target: x86_64-pc-windows-msvc
+            rustflags: ""
+            archive_suffix: x64
+          - label: aarch64-pc-windows-msvc
+            target: aarch64-pc-windows-msvc
+            rustflags: ""
+            archive_suffix: arm64
+      fail-fast: false
+    env:
+      CARGO_BUILD_TARGET: ${{ matrix.target }}
+    steps:
+      - name: Checkout Pulsar-Native
+        uses: actions/checkout@v4
+        with:
+          repository: Far-Beyond-Pulsar/Pulsar-Native
+          ref: main
+          path: code
+          submodules: recursive
+          fetch-depth: 1
+
+      - name: Install Rust target
+        run: rustup target add ${{ matrix.target }}
+
+      - name: Build release
         working-directory: code
         run: cargo build --release -j $env:NUMBER_OF_PROCESSORS
 
-      # ── 6. Build ARM64 ───────────────────────────────────────────────
-      - name: Build aarch64-pc-windows-msvc
-        working-directory: code
-        run: cargo build --release --target aarch64-pc-windows-msvc -j $env:NUMBER_OF_PROCESSORS
-
-      # ── 7. Package artifacts ─────────────────────────────────────────
       - name: Package
         shell: bash
         run: |
-          mkdir -p dist/x64 dist/arm64
-
-          while IFS= read -r f; do cp "$f" dist/x64/; done < \
-            <(find code/target/release -maxdepth 1 -type f \( -name '*.exe' -o -name '*.dll' -o -name '*.pdb' \) 2>/dev/null)
-
-          while IFS= read -r f; do cp "$f" dist/arm64/; done < \
-            <(find "code/target/aarch64-pc-windows-msvc/release" -maxdepth 1 -type f \
+          mkdir dist
+          while IFS= read -r f; do cp "$f" dist/; done < \
+            <(find code/target/${{ matrix.target }}/release -maxdepth 1 -type f \
               \( -name '*.exe' -o -name '*.dll' -o -name '*.pdb' \) 2>/dev/null)
-
           cd dist
-          7z a -tzip "../Pulsar-Native_x64_${{ steps.commit.outputs.short }}.zip" ./x64/*
-          7z a -tzip "../Pulsar-Native_arm64_${{ steps.commit.outputs.short }}.zip" ./arm64/*
+          7z a -tzip "../Pulsar-Native_${{ matrix.archive_suffix }}_${{ needs.resolve.outputs.short }}.zip" ./*
 
-      # ── 8. Write README ──────────────────────────────────────────────
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: build-${{ matrix.archive_suffix }}
+          path: Pulsar-Native_${{ matrix.archive_suffix }}_${{ needs.resolve.outputs.short }}.zip
+
+  # ── Collect, commit, and release (runs after BOTH matrix jobs finish) ───
+  publish:
+    name: Publish nightly
+    runs-on: windows-latest
+    needs: [resolve, build]
+    steps:
+      - name: Checkout Nightly repo
+        uses: actions/checkout@v4
+
+      - name: Download all build artifacts
+        uses: actions/download-artifact@v4
+        with:
+          path: _artifacts
+
+      - name: Gather zips to repo root
+        shell: bash
+        run: |
+          find _artifacts -name '*.zip' -exec cp {} . \;
+          rm -rf _artifacts
+
       - name: Write README
         shell: bash
         run: |
@@ -88,9 +139,9 @@ jobs:
 
           | Field | Value |
           |---|---|
-          | Source commit | [${{ steps.commit.outputs.sha }}](https://github.com/Far-Beyond-Pulsar/Pulsar-Native/commit/${{ steps.commit.outputs.sha }}) |
-          | Date | ${{ steps.commit.outputs.date }} |
-          | Message | \`${{ steps.commit.outputs.message }}\` |
+          | Source commit | [${{ needs.resolve.outputs.sha }}](https://github.com/Far-Beyond-Pulsar/Pulsar-Native/commit/${{ needs.resolve.outputs.sha }}) |
+          | Date | ${{ needs.resolve.outputs.date }} |
+          | Message | \`${{ needs.resolve.outputs.message }}\` |
           | Workflow | [${{ github.run_id }}](${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}) |
 
           ## 📦 Downloads
@@ -99,8 +150,8 @@ jobs:
 
           | Platform | Archive |
           |---|---|
-          | Windows x64 | \`Pulsar-Native_x64_${{ steps.commit.outputs.short }}.zip\` |
-          | Windows ARM64 | \`Pulsar-Native_arm64_${{ steps.commit.outputs.short }}.zip\` |
+          | Windows x64 | \`Pulsar-Native_x64_${{ needs.resolve.outputs.short }}.zip\` |
+          | Windows ARM64 | \`Pulsar-Native_arm64_${{ needs.resolve.outputs.short }}.zip\` |
 
           > [!CAUTION]
           > These are **automated nightly builds** — they are **not** tested, validated, or
@@ -122,36 +173,32 @@ jobs:
           [**Pulsar-Native**](https://github.com/Far-Beyond-Pulsar/Pulsar-Native) is a next-generation Rust
           game engine where the editor is the runtime and the runtime is the editor.
 
-          This repository distributes **automated Windows binaries** of the latest \`master\` branch
+          This repository distributes **automated Windows binaries** of the latest \`main\` branch
           for evaluation and testing. No source changes are made here — everything in
           [\`code/\`](./code) is a direct mirror of
           [Pulsar-Native](https://github.com/Far-Beyond-Pulsar/Pulsar-Native).
           README_EOF
 
-      # ── 9. Commit updated source + README ────────────────────────────
       - name: Commit and push
         shell: bash
         run: |
           git config user.name "Nightly Build Bot"
           git config user.email "bot@far-beyond-pulsar.github.com"
           git add -A
-          git commit -m "Nightly ${{ steps.commit.outputs.short }} — ${{ steps.commit.outputs.message }}"
-          git push origin master
+          git commit -m "Nightly ${{ needs.resolve.outputs.short }} — ${{ needs.resolve.outputs.message }}"
+          git push origin main
 
-      # ── 10. Tag the Nightly commit and create Release ────────────────
       - name: Create Release
         shell: bash
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          TAG="nightly-${{ steps.commit.outputs.short }}"
+          TAG="nightly-${{ needs.resolve.outputs.short }}"
           git tag -f "$TAG" HEAD
           git push origin "$TAG" --force
 
-          # Delete existing release with the same tag if any, then recreate
           gh release delete "$TAG" --repo "${{ github.repository }}" --yes 2>/dev/null || true
 
-          # Collated commit log since last nightly (or last 30 if first run)
           LOG=$(cd code && git log --oneline -30 2>/dev/null | sed 's/^/- /')
 
           NOTES=$(cat << NOTESEOF
@@ -170,7 +217,7 @@ jobs:
           > [official releases](https://github.com/Far-Beyond-Pulsar/Pulsar-Native/releases)
           > instead.
 
-          **Build of** [Pulsar-Native@${{ steps.commit.outputs.sha }}](https://github.com/Far-Beyond-Pulsar/Pulsar-Native/commit/${{ steps.commit.outputs.sha }}) — ${{ steps.commit.outputs.date }}
+          **Build of** [Pulsar-Native@${{ needs.resolve.outputs.sha }}](https://github.com/Far-Beyond-Pulsar/Pulsar-Native/commit/${{ needs.resolve.outputs.sha }}) — ${{ needs.resolve.outputs.date }}
 
           <details>
           <summary><b>Recent commits (up to 30)</b></summary>
@@ -183,8 +230,8 @@ jobs:
 
           gh release create "$TAG" \
             --repo "${{ github.repository }}" \
-            --title "Nightly ${{ steps.commit.outputs.short }}" \
+            --title "Nightly ${{ needs.resolve.outputs.short }}" \
             --notes "$NOTES" \
             --prerelease \
-            Pulsar-Native_x64_${{ steps.commit.outputs.short }}.zip \
-            Pulsar-Native_arm64_${{ steps.commit.outputs.short }}.zip
+            Pulsar-Native_x64_${{ needs.resolve.outputs.short }}.zip \
+            Pulsar-Native_arm64_${{ needs.resolve.outputs.short }}.zip
