@@ -115,16 +115,28 @@ jobs:
       - name: Checkout Nightly repo
         uses: actions/checkout@v4
 
-      - name: Download all build artifacts
+      - name: Download all artifacts
         uses: actions/download-artifact@v4
         with:
           path: _artifacts
 
-      - name: Gather zips to repo root
+      - name: Gather zips and commit log
         shell: bash
         run: |
           find _artifacts -name '*.zip' -exec cp {} . \;
+          if [ -f _artifacts/commits/commits.txt ]; then
+            cp _artifacts/commits/commits.txt ./
+          fi
           rm -rf _artifacts
+
+      - name: Checkout Pulsar-Native source for code/ folder
+        uses: actions/checkout@v4
+        with:
+          repository: Far-Beyond-Pulsar/Pulsar-Native
+          ref: main
+          path: code
+          submodules: recursive
+          fetch-depth: 1
 
       - name: Write README
         shell: bash
@@ -199,7 +211,7 @@ jobs:
 
           gh release delete "$TAG" --repo "${{ github.repository }}" --yes 2>/dev/null || true
 
-          LOG=$(cd code && git log --oneline -30 2>/dev/null | sed 's/^/- /')
+          LOG=$(cat commits.txt 2>/dev/null | sed 's/^/- /' || git -C code log --oneline -30 2>/dev/null | sed 's/^/- /')
 
           NOTES=$(cat << NOTESEOF
           > [!CAUTION]
