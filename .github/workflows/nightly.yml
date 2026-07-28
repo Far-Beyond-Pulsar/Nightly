@@ -1,0 +1,190 @@
+name: 🏗️ Nightly Build
+
+on:
+  schedule:
+    - cron: '0 6 * * *'
+  workflow_dispatch:
+
+env:
+  CARGO_TERM_COLOR: always
+  CARGO_NET_RETRY: 3
+
+jobs:
+  build:
+    name: x64 + ARM64 Windows
+    runs-on: windows-latest
+    steps:
+      # ── 1. Checkout Nightly repo at root ─────────────────────────────
+      - name: Checkout Nightly
+        uses: actions/checkout@v4
+
+      # ── 2. Checkout Pulsar-Native + submodules into code/ ────────────
+      - name: Checkout Pulsar-Native
+        uses: actions/checkout@v4
+        with:
+          repository: Far-Beyond-Pulsar/Pulsar-Native
+          ref: master
+          path: code
+          submodules: recursive
+          fetch-depth: 1
+
+      # ── 3. Install ARM64 target ──────────────────────────────────────
+      - name: Install ARM64 target
+        run: rustup target add aarch64-pc-windows-msvc
+
+      # ── 4. Record commit info ────────────────────────────────────────
+      - name: Record commit
+        id: commit
+        shell: bash
+        working-directory: code
+        run: |
+          SHA="$(git rev-parse HEAD)"
+          SHORT="$(git rev-parse --short HEAD)"
+          MSG="$(git log --oneline -1)"
+          DATE="$(git log -1 --format=%cd --date=short)"
+          echo "sha=$SHA" >> "$GITHUB_OUTPUT"
+          echo "short=$SHORT" >> "$GITHUB_OUTPUT"
+          echo "message=$MSG" >> "$GITHUB_OUTPUT"
+          echo "date=$DATE" >> "$GITHUB_OUTPUT"
+
+      # ── 5. Build x64 ─────────────────────────────────────────────────
+      - name: Build x86_64-pc-windows-msvc
+        working-directory: code
+        run: cargo build --release -j $env:NUMBER_OF_PROCESSORS
+
+      # ── 6. Build ARM64 ───────────────────────────────────────────────
+      - name: Build aarch64-pc-windows-msvc
+        working-directory: code
+        run: cargo build --release --target aarch64-pc-windows-msvc -j $env:NUMBER_OF_PROCESSORS
+
+      # ── 7. Package artifacts ─────────────────────────────────────────
+      - name: Package
+        shell: bash
+        run: |
+          mkdir -p dist/x64 dist/arm64
+
+          while IFS= read -r f; do cp "$f" dist/x64/; done < \
+            <(find code/target/release -maxdepth 1 -type f \( -name '*.exe' -o -name '*.dll' -o -name '*.pdb' \) 2>/dev/null)
+
+          while IFS= read -r f; do cp "$f" dist/arm64/; done < \
+            <(find "code/target/aarch64-pc-windows-msvc/release" -maxdepth 1 -type f \
+              \( -name '*.exe' -o -name '*.dll' -o -name '*.pdb' \) 2>/dev/null)
+
+          cd dist
+          7z a -tzip "../Pulsar-Native_x64_${{ steps.commit.outputs.short }}.zip" ./x64/*
+          7z a -tzip "../Pulsar-Native_arm64_${{ steps.commit.outputs.short }}.zip" ./arm64/*
+
+      # ── 8. Write README ──────────────────────────────────────────────
+      - name: Write README
+        shell: bash
+        run: |
+          cat > README.md << README_EOF
+          # ⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️
+          #    ⚠️  THIS IS A NIGHTLY BUILD REPOSITORY  ⚠️
+          #    ⚠️  DO NOT USE FOR PRODUCTION            ⚠️
+          # ⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️
+
+          Automated **nightly builds** of [Pulsar-Native](https://github.com/Far-Beyond-Pulsar/Pulsar-Native).
+
+          | Field | Value |
+          |---|---|
+          | Source commit | [${{ steps.commit.outputs.sha }}](https://github.com/Far-Beyond-Pulsar/Pulsar-Native/commit/${{ steps.commit.outputs.sha }}) |
+          | Date | ${{ steps.commit.outputs.date }} |
+          | Message | \`${{ steps.commit.outputs.message }}\` |
+          | Workflow | [${{ github.run_id }}](${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}) |
+
+          ## 📦 Downloads
+
+          Browse the [Releases page](https://github.com/Far-Beyond-Pulsar/Nightly/releases) for archives.
+
+          | Platform | Archive |
+          |---|---|
+          | Windows x64 | \`Pulsar-Native_x64_${{ steps.commit.outputs.short }}.zip\` |
+          | Windows ARM64 | \`Pulsar-Native_arm64_${{ steps.commit.outputs.short }}.zip\` |
+
+          > [!CAUTION]
+          > These are **automated nightly builds** — they are **not** tested, validated, or
+          > guaranteed to work in any capacity. Use at your own risk.
+          >
+          > Nightly builds may:
+          > - Corrupt data (save files, project assets, configuration)
+          > - Crash unexpectedly or fail to launch entirely
+          > - Fail to compile on certain configurations
+          > - Crash GPU drivers or cause display driver timeouts
+          > - Introduce regressions that were not present in the previous build
+          >
+          > If stability is important to you, use the
+          > [official releases](https://github.com/Far-Beyond-Pulsar/Pulsar-Native/releases)
+          > instead.
+
+          ## ℹ️ About
+
+          [**Pulsar-Native**](https://github.com/Far-Beyond-Pulsar/Pulsar-Native) is a next-generation Rust
+          game engine where the editor is the runtime and the runtime is the editor.
+
+          This repository distributes **automated Windows binaries** of the latest \`master\` branch
+          for evaluation and testing. No source changes are made here — everything in
+          [\`code/\`](./code) is a direct mirror of
+          [Pulsar-Native](https://github.com/Far-Beyond-Pulsar/Pulsar-Native).
+          README_EOF
+
+      # ── 9. Commit updated source + README ────────────────────────────
+      - name: Commit and push
+        shell: bash
+        run: |
+          git config user.name "Nightly Build Bot"
+          git config user.email "bot@far-beyond-pulsar.github.com"
+          git add -A
+          git commit -m "Nightly ${{ steps.commit.outputs.short }} — ${{ steps.commit.outputs.message }}"
+          git push origin master
+
+      # ── 10. Tag the Nightly commit and create Release ────────────────
+      - name: Create Release
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          TAG="nightly-${{ steps.commit.outputs.short }}"
+          git tag -f "$TAG" HEAD
+          git push origin "$TAG" --force
+
+          # Delete existing release with the same tag if any, then recreate
+          gh release delete "$TAG" --repo "${{ github.repository }}" --yes 2>/dev/null || true
+
+          # Collated commit log since last nightly (or last 30 if first run)
+          LOG=$(cd code && git log --oneline -30 2>/dev/null | sed 's/^/- /')
+
+          NOTES=$(cat << NOTESEOF
+          > [!CAUTION]
+          > These are **automated nightly builds** — they are **not** tested, validated, or
+          > guaranteed to work in any capacity. Use at your own risk.
+          >
+          > Nightly builds may:
+          > - Corrupt data (save files, project assets, configuration)
+          > - Crash unexpectedly or fail to launch entirely
+          > - Fail to compile on certain configurations
+          > - Crash GPU drivers or cause display driver timeouts
+          > - Introduce regressions that were not present in the previous build
+          >
+          > If stability is important to you, use the
+          > [official releases](https://github.com/Far-Beyond-Pulsar/Pulsar-Native/releases)
+          > instead.
+
+          **Build of** [Pulsar-Native@${{ steps.commit.outputs.sha }}](https://github.com/Far-Beyond-Pulsar/Pulsar-Native/commit/${{ steps.commit.outputs.sha }}) — ${{ steps.commit.outputs.date }}
+
+          <details>
+          <summary><b>Recent commits (up to 30)</b></summary>
+
+          $LOG
+
+          </details>
+          NOTESEOF
+          )
+
+          gh release create "$TAG" \
+            --repo "${{ github.repository }}" \
+            --title "Nightly ${{ steps.commit.outputs.short }}" \
+            --notes "$NOTES" \
+            --prerelease \
+            Pulsar-Native_x64_${{ steps.commit.outputs.short }}.zip \
+            Pulsar-Native_arm64_${{ steps.commit.outputs.short }}.zip
