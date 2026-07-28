@@ -54,25 +54,23 @@ jobs:
           name: commits
           path: commits.txt
 
-  # ── Build matrix: x64 + ARM64 in parallel ───────────────────────────────
+  # ── Build matrix: x64 + ARM64 in parallel on native runners ────────────
   build:
     name: ${{ matrix.label }}
-    runs-on: windows-latest
     needs: resolve
     strategy:
       matrix:
         include:
-          - label: x86_64-pc-windows-msvc
+          - label: Windows x64
+            runner: windows-latest
             target: x86_64-pc-windows-msvc
-            rustflags: ""
             archive_suffix: x64
-          - label: aarch64-pc-windows-msvc
+          - label: Windows ARM64
+            runner: windows-11-arm
             target: aarch64-pc-windows-msvc
-            rustflags: ""
             archive_suffix: arm64
       fail-fast: false
-    env:
-      CARGO_BUILD_TARGET: ${{ matrix.target }}
+    runs-on: ${{ matrix.runner }}
     steps:
       - name: Checkout Pulsar-Native
         uses: actions/checkout@v4
@@ -83,9 +81,6 @@ jobs:
           submodules: recursive
           fetch-depth: 1
 
-      - name: Install Rust target
-        run: rustup target add ${{ matrix.target }}
-
       - name: Build release
         working-directory: code
         run: cargo build --release -j $env:NUMBER_OF_PROCESSORS
@@ -95,7 +90,7 @@ jobs:
         run: |
           mkdir dist
           while IFS= read -r f; do cp "$f" dist/; done < \
-            <(find code/target/${{ matrix.target }}/release -maxdepth 1 -type f \
+            <(find code/target/release -maxdepth 1 -type f \
               \( -name '*.exe' -o -name '*.dll' -o -name '*.pdb' \) 2>/dev/null)
           cd dist
           7z a -tzip "../Pulsar-Native_${{ matrix.archive_suffix }}_${{ needs.resolve.outputs.short }}.zip" ./*
