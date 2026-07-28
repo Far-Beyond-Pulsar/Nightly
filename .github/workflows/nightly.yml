@@ -20,14 +20,12 @@ jobs:
       message: ${{ steps.commit.outputs.message }}
       date: ${{ steps.commit.outputs.date }}
     steps:
-      - name: Checkout Pulsar-Native
-        uses: actions/checkout@v4
-        with:
-          repository: Far-Beyond-Pulsar/Pulsar-Native
-          ref: main
-          path: code
-          submodules: recursive
-          fetch-depth: 1
+      - name: Fetch Pulsar-Native
+        shell: bash
+        run: |
+          git clone --recurse-submodules --depth=1 https://github.com/Far-Beyond-Pulsar/Pulsar-Native.git code
+          cd code
+          git checkout main
 
       - name: Record commit
         id: commit
@@ -72,14 +70,9 @@ jobs:
       fail-fast: false
     runs-on: ${{ matrix.runner }}
     steps:
-      - name: Checkout Pulsar-Native
-        uses: actions/checkout@v4
-        with:
-          repository: Far-Beyond-Pulsar/Pulsar-Native
-          ref: main
-          path: code
-          submodules: recursive
-          fetch-depth: 1
+      - name: Fetch Pulsar-Native
+        shell: bash
+        run: git clone --recurse-submodules --depth=1 https://github.com/Far-Beyond-Pulsar/Pulsar-Native.git code
 
       - name: Build release
         working-directory: code
@@ -124,14 +117,13 @@ jobs:
           fi
           rm -rf _artifacts
 
-      - name: Checkout Pulsar-Native source for code/ folder
-        uses: actions/checkout@v4
-        with:
-          repository: Far-Beyond-Pulsar/Pulsar-Native
-          ref: main
-          path: code
-          submodules: recursive
-          fetch-depth: 1
+      - name: Fetch Pulsar-Native source into code/ (flat, no submodule links)
+        shell: bash
+        run: |
+          git clone --recurse-submodules --depth=1 https://github.com/Far-Beyond-Pulsar/Pulsar-Native.git code
+          rm -rf code/.git code/.gitmodules
+          find code -name '.git' -delete 2>/dev/null || true
+          find code -name '.gitignore' -delete 2>/dev/null || true
 
       - name: Write README
         shell: bash
