@@ -1,0 +1,7 @@
+
+# Nightly build artifacts — only uploaded to GitHub Releases, never committed
+*.zip
+dist/
+artifacts/
+_artifacts/
+commits.txt
