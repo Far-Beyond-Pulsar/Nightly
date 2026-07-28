@@ -15,6 +15,7 @@ jobs:
     name: Resolve commit
     runs-on: windows-latest
     outputs:
+      skip: ${{ steps.commit.outputs.skip }}
       sha: ${{ steps.commit.outputs.sha }}
       short: ${{ steps.commit.outputs.short }}
       message: ${{ steps.commit.outputs.message }}
@@ -24,18 +25,29 @@ jobs:
         shell: bash
         run: |
           git clone --recurse-submodules --depth=1 https://github.com/Far-Beyond-Pulsar/Pulsar-Native.git code
-          cd code
-          git checkout main
 
-      - name: Record commit
+      - name: Check for new commits since last nightly
         id: commit
         shell: bash
-        working-directory: code
+        env:
+          GH_TOKEN: ${{ github.token }}
         run: |
-          SHA="$(git rev-parse HEAD)"
-          SHORT="$(git rev-parse --short HEAD)"
-          MSG="$(git log --oneline -1)"
-          DATE="$(git log -1 --format=%cd --date=short)"
+          SHA="$(git -C code rev-parse HEAD)"
+          SHORT="$(git -C code rev-parse --short HEAD)"
+          MSG="$(git -C code log --oneline -1)"
+          DATE="$(git -C code log -1 --format=%cd --date=short)"
+
+          # Find the most recent nightly release tag and extract its short SHA
+          LAST_TAG="$(gh release list --repo ${{ github.repository }} --limit 1 --json tagName --jq '.[0].tagName' 2>/dev/null || echo '')"
+          LAST_SHORT="${LAST_TAG#nightly-}"
+
+          if [ -n "$LAST_SHORT" ] && [ "$LAST_SHORT" = "$SHORT" ]; then
+            echo "No new commits since last nightly ($SHORT). Skipping build."
+            echo "skip=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "skip=false" >> "$GITHUB_OUTPUT"
+          fi
+
           echo "sha=$SHA" >> "$GITHUB_OUTPUT"
           echo "short=$SHORT" >> "$GITHUB_OUTPUT"
           echo "message=$MSG" >> "$GITHUB_OUTPUT"
@@ -56,6 +68,7 @@ jobs:
   build:
     name: ${{ matrix.label }}
     needs: resolve
+    if: ${{ needs.resolve.outputs.skip != 'true' }}
     strategy:
       matrix:
         include:
@@ -99,6 +112,7 @@ jobs:
     name: Publish nightly
     runs-on: windows-latest
     needs: [resolve, build]
+    if: ${{ always() && needs.resolve.outputs.skip != 'true' && !contains(needs.*.result, 'failure') && !contains(needs.*.result, 'cancelled') }}
     steps:
       - name: Checkout Nightly repo
         uses: actions/checkout@v4
