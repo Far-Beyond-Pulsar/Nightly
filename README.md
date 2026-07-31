@@ -7,10 +7,10 @@ Automated **nightly builds** of [Pulsar-Native](https://github.com/Far-Beyond-Pu
 
 | Field | Value |
 |---|---|
-| Source commit | [d552d65a1a8de9bdff2c7c08e2450f614d544c12](https://github.com/Far-Beyond-Pulsar/Pulsar-Native/commit/d552d65a1a8de9bdff2c7c08e2450f614d544c12) |
-| Date | 2026-07-30 |
-| Message | `d552d65 Updates` |
-| Workflow | [30525264251](https://github.com/Far-Beyond-Pulsar/Nightly/actions/runs/30525264251) |
+| Source commit | [64fed6af4faabaa69a1a7a26323ef6d4cf6a0873](https://github.com/Far-Beyond-Pulsar/Pulsar-Native/commit/64fed6af4faabaa69a1a7a26323ef6d4cf6a0873) |
+| Date | 2026-07-31 |
+| Message | `64fed6a Merge pull request #491 from Jonesxq/feat/issue-486-git-settings` |
+| Workflow | [30616173156](https://github.com/Far-Beyond-Pulsar/Nightly/actions/runs/30616173156) |
 
 ## 📦 Downloads
 
@@ -18,8 +18,8 @@ Browse the [Releases page](https://github.com/Far-Beyond-Pulsar/Nightly/releases
 
 | Platform | Archive |
 |---|---|
-| Windows x64 | `Pulsar-Native_x64_d552d65.zip` |
-| Windows ARM64 | `Pulsar-Native_arm64_d552d65.zip` |
+| Windows x64 | `Pulsar-Native_x64_64fed6a.zip` |
+| Windows ARM64 | `Pulsar-Native_arm64_64fed6a.zip` |
 
 > [!CAUTION]
 > These are **automated nightly builds** — they are **not** tested, validated, or
