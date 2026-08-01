@@ -7,10 +7,10 @@ Automated **nightly builds** of [Pulsar-Native](https://github.com/Far-Beyond-Pu
 
 | Field | Value |
 |---|---|
-| Source commit | [13eab270fd4fb4356147aff6c2515b9bad4637bd](https://github.com/Far-Beyond-Pulsar/Pulsar-Native/commit/13eab270fd4fb4356147aff6c2515b9bad4637bd) |
+| Source commit | [0b77b45b411f36a790b091bc716f7aa3f81741d8](https://github.com/Far-Beyond-Pulsar/Pulsar-Native/commit/0b77b45b411f36a790b091bc716f7aa3f81741d8) |
 | Date | 2026-08-01 |
-| Message | `13eab27 Update default.level` |
-| Workflow | [30690880199](https://github.com/Far-Beyond-Pulsar/Nightly/actions/runs/30690880199) |
+| Message | `0b77b45 Merge pull request #473 from Far-Beyond-Pulsar/renovate/pin-dependencies` |
+| Workflow | [30709392777](https://github.com/Far-Beyond-Pulsar/Nightly/actions/runs/30709392777) |
 
 ## 📦 Downloads
 
@@ -18,8 +18,8 @@ Browse the [Releases page](https://github.com/Far-Beyond-Pulsar/Nightly/releases
 
 | Platform | Archive |
 |---|---|
-| Windows x64 | `Pulsar-Native_x64_13eab27.zip` |
-| Windows ARM64 | `Pulsar-Native_arm64_13eab27.zip` |
+| Windows x64 | `Pulsar-Native_x64_0b77b45.zip` |
+| Windows ARM64 | `Pulsar-Native_arm64_0b77b45.zip` |
 
 > [!CAUTION]
 > These are **automated nightly builds** — they are **not** tested, validated, or
