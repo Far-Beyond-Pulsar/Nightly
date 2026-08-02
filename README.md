@@ -7,10 +7,10 @@ Automated **nightly builds** of [Pulsar-Native](https://github.com/Far-Beyond-Pu
 
 | Field | Value |
 |---|---|
-| Source commit | [0b77b45b411f36a790b091bc716f7aa3f81741d8](https://github.com/Far-Beyond-Pulsar/Pulsar-Native/commit/0b77b45b411f36a790b091bc716f7aa3f81741d8) |
-| Date | 2026-08-01 |
-| Message | `0b77b45 Merge pull request #473 from Far-Beyond-Pulsar/renovate/pin-dependencies` |
-| Workflow | [30709392777](https://github.com/Far-Beyond-Pulsar/Nightly/actions/runs/30709392777) |
+| Source commit | [50fd3b794fd302260adb45a6b2a2371fedd5df7e](https://github.com/Far-Beyond-Pulsar/Pulsar-Native/commit/50fd3b794fd302260adb45a6b2a2371fedd5df7e) |
+| Date | 2026-08-02 |
+| Message | `50fd3b7 Merge pull request #506 from Far-Beyond-Pulsar/fix/align-current-helio-api` |
+| Workflow | [30738983899](https://github.com/Far-Beyond-Pulsar/Nightly/actions/runs/30738983899) |
 
 ## 📦 Downloads
 
@@ -18,8 +18,8 @@ Browse the [Releases page](https://github.com/Far-Beyond-Pulsar/Nightly/releases
 
 | Platform | Archive |
 |---|---|
-| Windows x64 | `Pulsar-Native_x64_0b77b45.zip` |
-| Windows ARM64 | `Pulsar-Native_arm64_0b77b45.zip` |
+| Windows x64 | `Pulsar-Native_x64_50fd3b7.zip` |
+| Windows ARM64 | `Pulsar-Native_arm64_50fd3b7.zip` |
 
 > [!CAUTION]
 > These are **automated nightly builds** — they are **not** tested, validated, or
