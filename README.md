@@ -7,10 +7,10 @@ Automated **nightly builds** of [Pulsar-Native](https://github.com/Far-Beyond-Pu
 
 | Field | Value |
 |---|---|
-| Source commit | [cf10f2a5405a537688bb096308d1c22e8a407d41](https://github.com/Far-Beyond-Pulsar/Pulsar-Native/commit/cf10f2a5405a537688bb096308d1c22e8a407d41) |
-| Date | 2026-08-03 |
-| Message | `cf10f2a Merge pull request #509 from Far-Beyond-Pulsar/fix/helio-portable-tier-baseline` |
-| Workflow | [30799503167](https://github.com/Far-Beyond-Pulsar/Nightly/actions/runs/30799503167) |
+| Source commit | [3ea790ebe7d8ebdc6e060a6aeb9f287f3437fd0f](https://github.com/Far-Beyond-Pulsar/Pulsar-Native/commit/3ea790ebe7d8ebdc6e060a6aeb9f287f3437fd0f) |
+| Date | 2026-08-06 |
+| Message | `3ea790e Update Cargo.lock` |
+| Workflow | [31085476799](https://github.com/Far-Beyond-Pulsar/Nightly/actions/runs/31085476799) |
 
 ## 📦 Downloads
 
@@ -18,8 +18,8 @@ Browse the [Releases page](https://github.com/Far-Beyond-Pulsar/Nightly/releases
 
 | Platform | Archive |
 |---|---|
-| Windows x64 | `Pulsar-Native_x64_cf10f2a.zip` |
-| Windows ARM64 | `Pulsar-Native_arm64_cf10f2a.zip` |
+| Windows x64 | `Pulsar-Native_x64_3ea790e.zip` |
+| Windows ARM64 | `Pulsar-Native_arm64_3ea790e.zip` |
 
 > [!CAUTION]
 > These are **automated nightly builds** — they are **not** tested, validated, or
