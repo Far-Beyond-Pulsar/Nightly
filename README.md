@@ -7,10 +7,10 @@ Automated **nightly builds** of [Pulsar-Native](https://github.com/Far-Beyond-Pu
 
 | Field | Value |
 |---|---|
-| Source commit | [3ea790ebe7d8ebdc6e060a6aeb9f287f3437fd0f](https://github.com/Far-Beyond-Pulsar/Pulsar-Native/commit/3ea790ebe7d8ebdc6e060a6aeb9f287f3437fd0f) |
+| Source commit | [91c04ac265613a365e4aefc54d2ba70a94609656](https://github.com/Far-Beyond-Pulsar/Pulsar-Native/commit/91c04ac265613a365e4aefc54d2ba70a94609656) |
 | Date | 2026-08-06 |
-| Message | `3ea790e Update Cargo.lock` |
-| Workflow | [31085476799](https://github.com/Far-Beyond-Pulsar/Nightly/actions/runs/31085476799) |
+| Message | `91c04ac Update helio` |
+| Workflow | [31155849161](https://github.com/Far-Beyond-Pulsar/Nightly/actions/runs/31155849161) |
 
 ## 📦 Downloads
 
@@ -18,8 +18,8 @@ Browse the [Releases page](https://github.com/Far-Beyond-Pulsar/Nightly/releases
 
 | Platform | Archive |
 |---|---|
-| Windows x64 | `Pulsar-Native_x64_3ea790e.zip` |
-| Windows ARM64 | `Pulsar-Native_arm64_3ea790e.zip` |
+| Windows x64 | `Pulsar-Native_x64_91c04ac.zip` |
+| Windows ARM64 | `Pulsar-Native_arm64_91c04ac.zip` |
 
 > [!CAUTION]
 > These are **automated nightly builds** — they are **not** tested, validated, or
