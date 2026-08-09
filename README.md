@@ -7,10 +7,10 @@ Automated **nightly builds** of [Pulsar-Native](https://github.com/Far-Beyond-Pu
 
 | Field | Value |
 |---|---|
-| Source commit | [d4f9225c2638895e912d61bd2cb25ddee8e80c16](https://github.com/Far-Beyond-Pulsar/Pulsar-Native/commit/d4f9225c2638895e912d61bd2cb25ddee8e80c16) |
+| Source commit | [8d52fb11f3a1c5bd06e5f7c0f0124bf306de18c5](https://github.com/Far-Beyond-Pulsar/Pulsar-Native/commit/8d52fb11f3a1c5bd06e5f7c0f0124bf306de18c5) |
 | Date | 2026-08-08 |
-| Message | `d4f9225 Merge pull request #517 from wleo90078-source/i18n/asset-viewer` |
-| Workflow | [31244142842](https://github.com/Far-Beyond-Pulsar/Nightly/actions/runs/31244142842) |
+| Message | `8d52fb1 Merge pull request #524 from Far-Beyond-Pulsar/i18n/de-locale` |
+| Workflow | [31299241905](https://github.com/Far-Beyond-Pulsar/Nightly/actions/runs/31299241905) |
 
 ## 📦 Downloads
 
@@ -18,8 +18,8 @@ Browse the [Releases page](https://github.com/Far-Beyond-Pulsar/Nightly/releases
 
 | Platform | Archive |
 |---|---|
-| Windows x64 | `Pulsar-Native_x64_d4f9225.zip` |
-| Windows ARM64 | `Pulsar-Native_arm64_d4f9225.zip` |
+| Windows x64 | `Pulsar-Native_x64_8d52fb1.zip` |
+| Windows ARM64 | `Pulsar-Native_arm64_8d52fb1.zip` |
 
 > [!CAUTION]
 > These are **automated nightly builds** — they are **not** tested, validated, or
