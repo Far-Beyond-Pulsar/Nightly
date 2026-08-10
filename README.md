@@ -7,10 +7,10 @@ Automated **nightly builds** of [Pulsar-Native](https://github.com/Far-Beyond-Pu
 
 | Field | Value |
 |---|---|
-| Source commit | [8d52fb11f3a1c5bd06e5f7c0f0124bf306de18c5](https://github.com/Far-Beyond-Pulsar/Pulsar-Native/commit/8d52fb11f3a1c5bd06e5f7c0f0124bf306de18c5) |
-| Date | 2026-08-08 |
-| Message | `8d52fb1 Merge pull request #524 from Far-Beyond-Pulsar/i18n/de-locale` |
-| Workflow | [31299241905](https://github.com/Far-Beyond-Pulsar/Nightly/actions/runs/31299241905) |
+| Source commit | [5ab38b93012a7a02c1263afe7644f211224f8a44](https://github.com/Far-Beyond-Pulsar/Pulsar-Native/commit/5ab38b93012a7a02c1263afe7644f211224f8a44) |
+| Date | 2026-08-10 |
+| Message | `5ab38b9 Harden terrain snapshot root recovery (#539)` |
+| Workflow | [31364517547](https://github.com/Far-Beyond-Pulsar/Nightly/actions/runs/31364517547) |
 
 ## 📦 Downloads
 
@@ -18,8 +18,8 @@ Browse the [Releases page](https://github.com/Far-Beyond-Pulsar/Nightly/releases
 
 | Platform | Archive |
 |---|---|
-| Windows x64 | `Pulsar-Native_x64_8d52fb1.zip` |
-| Windows ARM64 | `Pulsar-Native_arm64_8d52fb1.zip` |
+| Windows x64 | `Pulsar-Native_x64_5ab38b9.zip` |
+| Windows ARM64 | `Pulsar-Native_arm64_5ab38b9.zip` |
 
 > [!CAUTION]
 > These are **automated nightly builds** — they are **not** tested, validated, or
