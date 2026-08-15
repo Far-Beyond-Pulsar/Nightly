@@ -7,10 +7,10 @@ Automated **nightly builds** of [Pulsar-Native](https://github.com/Far-Beyond-Pu
 
 | Field | Value |
 |---|---|
-| Source commit | [2dc7228aa7d708ddac8a497e23be1cfc835189fa](https://github.com/Far-Beyond-Pulsar/Pulsar-Native/commit/2dc7228aa7d708ddac8a497e23be1cfc835189fa) |
+| Source commit | [73a16d08863842f03d3e93f0df50a461719d1727](https://github.com/Far-Beyond-Pulsar/Pulsar-Native/commit/73a16d08863842f03d3e93f0df50a461719d1727) |
 | Date | 2026-08-14 |
-| Message | `2dc7228 Merge pull request #569 from Far-Beyond-Pulsar/phase-d-water-and-postprocess-volumes` |
-| Workflow | [31778630027](https://github.com/Far-Beyond-Pulsar/Nightly/actions/runs/31778630027) |
+| Message | `73a16d0 SceneDB level editing updates` |
+| Workflow | [31869105132](https://github.com/Far-Beyond-Pulsar/Nightly/actions/runs/31869105132) |
 
 ## 📦 Downloads
 
@@ -18,8 +18,8 @@ Browse the [Releases page](https://github.com/Far-Beyond-Pulsar/Nightly/releases
 
 | Platform | Archive |
 |---|---|
-| Windows x64 | `Pulsar-Native_x64_2dc7228.zip` |
-| Windows ARM64 | `Pulsar-Native_arm64_2dc7228.zip` |
+| Windows x64 | `Pulsar-Native_x64_73a16d0.zip` |
+| Windows ARM64 | `Pulsar-Native_arm64_73a16d0.zip` |
 
 > [!CAUTION]
 > These are **automated nightly builds** — they are **not** tested, validated, or
