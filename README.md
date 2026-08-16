@@ -7,10 +7,10 @@ Automated **nightly builds** of [Pulsar-Native](https://github.com/Far-Beyond-Pu
 
 | Field | Value |
 |---|---|
-| Source commit | [73a16d08863842f03d3e93f0df50a461719d1727](https://github.com/Far-Beyond-Pulsar/Pulsar-Native/commit/73a16d08863842f03d3e93f0df50a461719d1727) |
-| Date | 2026-08-14 |
-| Message | `73a16d0 SceneDB level editing updates` |
-| Workflow | [31869105132](https://github.com/Far-Beyond-Pulsar/Nightly/actions/runs/31869105132) |
+| Source commit | [c612cec084aca29b325f3dd5239505d9c7489e55](https://github.com/Far-Beyond-Pulsar/Pulsar-Native/commit/c612cec084aca29b325f3dd5239505d9c7489e55) |
+| Date | 2026-08-15 |
+| Message | `c612cec GPU Component field updates` |
+| Workflow | [31931178876](https://github.com/Far-Beyond-Pulsar/Nightly/actions/runs/31931178876) |
 
 ## 📦 Downloads
 
@@ -18,8 +18,8 @@ Browse the [Releases page](https://github.com/Far-Beyond-Pulsar/Nightly/releases
 
 | Platform | Archive |
 |---|---|
-| Windows x64 | `Pulsar-Native_x64_73a16d0.zip` |
-| Windows ARM64 | `Pulsar-Native_arm64_73a16d0.zip` |
+| Windows x64 | `Pulsar-Native_x64_c612cec.zip` |
+| Windows ARM64 | `Pulsar-Native_arm64_c612cec.zip` |
 
 > [!CAUTION]
 > These are **automated nightly builds** — they are **not** tested, validated, or
