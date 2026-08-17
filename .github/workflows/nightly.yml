@@ -125,7 +125,7 @@ jobs:
           pre-build = [
               "dpkg --add-architecture arm64",
               "apt-get update",
-              "apt-get install -y libssl-dev:arm64 libglib2.0-dev:arm64 libxkbcommon-x11-0:arm64 libxkbcommon-x11-dev:arm64",
+              "apt-get install -y libssl-dev:arm64 libglib2.0-dev:arm64 libxkbcommon-x11-0:arm64 libxkbcommon-x11-dev:arm64 libx11-dev:arm64",
               "apt-get install -y libfontconfig-dev:arm64 || apt-get install -y libfontconfig1-dev:arm64 || echo 'WARN: fontconfig-dev:arm64 not available'"
           ]
           EOF
