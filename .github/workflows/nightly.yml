@@ -124,9 +124,10 @@ jobs:
           [target.aarch64-unknown-linux-gnu]
           pre-build = [
               "dpkg --add-architecture arm64",
+              "echo 'deb [arch=arm64] http://ports.ubuntu.com/ focal main restricted universe multiverse' > /etc/apt/sources.list.d/arm64.list",
+              "echo 'deb [arch=arm64] http://ports.ubuntu.com/ focal-updates main restricted universe multiverse' >> /etc/apt/sources.list.d/arm64.list",
               "apt-get update",
-              "apt-get install -y libssl-dev:arm64 libglib2.0-dev:arm64 libxkbcommon-x11-0:arm64 libxkbcommon-x11-dev:arm64 libx11-dev:arm64",
-              "apt-get install -y libfontconfig-dev:arm64 || apt-get install -y libfontconfig1-dev:arm64 || echo 'WARN: fontconfig-dev:arm64 not available'"
+              "apt-get install -y libssl-dev:arm64 libglib2.0-dev:arm64 libxkbcommon-x11-0:arm64 libxkbcommon-x11-dev:arm64 libx11-dev:arm64 libfontconfig-dev:arm64"
           ]
           EOF
 
