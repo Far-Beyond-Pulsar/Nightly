@@ -7,10 +7,10 @@ Automated **nightly builds** of [Pulsar-Native](https://github.com/Far-Beyond-Pu
 
 | Field | Value |
 |---|---|
-| Source commit | [5dd66c7cf4e708640d63543de7827b33298b6a3e](https://github.com/Far-Beyond-Pulsar/Pulsar-Native/commit/5dd66c7cf4e708640d63543de7827b33298b6a3e) |
-| Date | 2026-08-16 |
-| Message | `5dd66c7 Perf tweaks` |
-| Workflow | [32001963893](https://github.com/Far-Beyond-Pulsar/Nightly/actions/runs/32001963893) |
+| Source commit | [d0863f9f48ba996f20a9815892e5a21767e2536f](https://github.com/Far-Beyond-Pulsar/Pulsar-Native/commit/d0863f9f48ba996f20a9815892e5a21767e2536f) |
+| Date | 2026-08-17 |
+| Message | `d0863f9 Update platform.rs` |
+| Workflow | [32042967902](https://github.com/Far-Beyond-Pulsar/Nightly/actions/runs/32042967902) |
 
 ## 📦 Downloads
 
@@ -18,8 +18,10 @@ Browse the [Releases page](https://github.com/Far-Beyond-Pulsar/Nightly/releases
 
 | Platform | Archive |
 |---|---|
-| Windows x64 | `Pulsar-Native_x64_5dd66c7.zip` |
-| Windows ARM64 | `Pulsar-Native_arm64_5dd66c7.zip` |
+| Windows x64 | `Pulsar-Native_x64_d0863f9.zip` |
+| Windows ARM64 | `Pulsar-Native_arm64_d0863f9.zip` |
+| Linux x64 | `Pulsar-Native_linux-x64_d0863f9.zip` |
+| macOS ARM64 | `Pulsar-Native_macos-arm64_d0863f9.zip` |
 
 > [!CAUTION]
 > These are **automated nightly builds** — they are **not** tested, validated, or
@@ -41,7 +43,7 @@ Browse the [Releases page](https://github.com/Far-Beyond-Pulsar/Nightly/releases
 [**Pulsar-Native**](https://github.com/Far-Beyond-Pulsar/Pulsar-Native) is a next-generation Rust
 game engine where the editor is the runtime and the runtime is the editor.
 
-This repository distributes **automated Windows binaries** of the latest `main` branch
+This repository distributes **automated binaries** of the latest `main` branch
 for evaluation and testing. No source changes are made here — everything in
 [`code/`](./code) is a direct mirror of
 [Pulsar-Native](https://github.com/Far-Beyond-Pulsar/Pulsar-Native).
