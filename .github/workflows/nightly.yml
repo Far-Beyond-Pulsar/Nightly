@@ -1,4 +1,4 @@
-name: 🏗️ Nightly Build
+name: Nightly Build
 
 on:
   schedule:
@@ -64,40 +64,130 @@ jobs:
           name: commits
           path: commits.txt
 
-  # ── Build matrix: x64 + ARM64 in parallel on native runners ────────────
+  # ── Build matrix: all platforms in parallel ──────────────────────────────
   build:
     name: ${{ matrix.label }}
     needs: resolve
     if: ${{ needs.resolve.outputs.skip != 'true' }}
     strategy:
+      fail-fast: false
       matrix:
         include:
           - label: Windows x64
             runner: windows-latest
             target: x86_64-pc-windows-msvc
             archive_suffix: x64
+            file_ext: .exe
           - label: Windows ARM64
             runner: windows-11-arm
             target: aarch64-pc-windows-msvc
             archive_suffix: arm64
-      fail-fast: false
+            file_ext: .exe
+          - label: Linux x64
+            runner: ubuntu-latest
+            target: x86_64-unknown-linux-gnu
+            archive_suffix: linux-x64
+          - label: Linux ARM64
+            runner: ubuntu-latest
+            target: aarch64-unknown-linux-gnu
+            archive_suffix: linux-arm64
+            cross: true
+          - label: macOS ARM64
+            runner: macos-latest
+            target: aarch64-apple-darwin
+            archive_suffix: macos-arm64
     runs-on: ${{ matrix.runner }}
     steps:
       - name: Fetch Pulsar-Native
         shell: bash
         run: git clone --recurse-submodules --depth=1 https://github.com/Far-Beyond-Pulsar/Pulsar-Native.git code
 
-      - name: Build release
+      - name: Install Linux dependencies
+        if: runner.os == 'Linux' && !matrix.cross
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y pkg-config libssl-dev libglib2.0-dev libgtk-3-dev libsoup-3.0-dev libjavascriptcoregtk-4.1-dev libxkbcommon-x11-0 libxkbcommon-x11-dev libasound2-dev
+
+      - name: Install cross
+        if: matrix.cross
+        run: cargo install cross --git https://github.com/cross-rs/cross
+
+      - name: Configure cross for Linux ARM64
+        if: matrix.cross
         working-directory: code
-        run: cargo build --release -j $env:NUMBER_OF_PROCESSORS
+        run: |
+          cat > Cross.toml << 'EOF'
+          [target.aarch64-unknown-linux-gnu]
+          pre-build = [
+              "dpkg --add-architecture arm64",
+              "apt-get update",
+              "apt-get install -y libssl-dev:arm64 libglib2.0-dev:arm64 libxkbcommon-x11-0:arm64 libxkbcommon-x11-dev:arm64 || true"
+          ]
+          EOF
+
+      - name: Install macOS dependencies
+        if: runner.os == 'macOS'
+        run: |
+          brew update
+          brew install openssl@3 protobuf
+          echo "OPENSSL_DIR=$(brew --prefix openssl@3)" >> $GITHUB_ENV
+          echo "PATH=$(brew --prefix protobuf)/bin:$PATH" >> $GITHUB_ENV
+          brew link --force protobuf
+
+      - name: Build release (cargo)
+        if: ${{ !matrix.cross }}
+        working-directory: code
+        shell: bash
+        run: |
+          if command -v nproc &>/dev/null; then
+            JOBS=$(nproc)
+          elif command -v sysctl &>/dev/null; then
+            JOBS=$(sysctl -n hw.ncpu)
+          else
+            JOBS=4
+          fi
+          cargo build --release -j "$JOBS"
+
+      - name: Build release (cross)
+        if: matrix.cross
+        working-directory: code
+        shell: bash
+        run: |
+          if command -v nproc &>/dev/null; then
+            JOBS=$(nproc)
+          else
+            JOBS=4
+          fi
+          cross build --release --target ${{ matrix.target }} -j "$JOBS"
 
       - name: Package
         shell: bash
+        working-directory: code
         run: |
           mkdir dist
-          while IFS= read -r f; do cp "$f" dist/; done < \
-            <(find code/target/release -maxdepth 1 -type f \
-              \( -name '*.exe' -o -name '*.dll' -o -name '*.pdb' \) 2>/dev/null)
+
+          # Determine the output directory
+          if [ "${{ matrix.cross }}" = "true" ]; then
+            BINDIR="target/${{ matrix.target }}/release"
+          else
+            BINDIR="target/release"
+          fi
+
+          # Package platform-appropriate binaries
+          OS="${{ runner.os }}"
+          EXT="${{ matrix.file_ext }}"
+          if [ "$OS" = "Windows" ]; then
+            find "$BINDIR" -maxdepth 1 -type f \
+              \( -name "*${EXT}" -o -name '*.dll' -o -name '*.pdb' \) \
+              -exec cp {} dist/ \;
+          elif [ "$OS" = "Linux" ]; then
+            find "$BINDIR" -maxdepth 1 -type f \( -perm /111 -o -name '*.so*' \) \
+              -exec cp {} dist/ \;
+          elif [ "$OS" = "macOS" ]; then
+            find "$BINDIR" -maxdepth 1 -type f \( -perm /111 -o -name '*.dylib' \) \
+              -exec cp {} dist/ \;
+          fi
+
           cd dist
           7z a -tzip "../Pulsar-Native_${{ matrix.archive_suffix }}_${{ needs.resolve.outputs.short }}.zip" ./*
 
@@ -105,12 +195,12 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: build-${{ matrix.archive_suffix }}
-          path: Pulsar-Native_${{ matrix.archive_suffix }}_${{ needs.resolve.outputs.short }}.zip
+          path: code/Pulsar-Native_${{ matrix.archive_suffix }}_${{ needs.resolve.outputs.short }}.zip
 
-  # ── Collect, commit, and release (runs after BOTH matrix jobs finish) ───
+  # ── Collect, commit, and release (runs after ALL matrix jobs finish) ────
   publish:
     name: Publish nightly
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
     needs: [resolve, build]
     if: ${{ always() && needs.resolve.outputs.skip != 'true' && !contains(needs.*.result, 'failure') && !contains(needs.*.result, 'cancelled') }}
     steps:
@@ -165,6 +255,9 @@ jobs:
           |---|---|
           | Windows x64 | \`Pulsar-Native_x64_${{ needs.resolve.outputs.short }}.zip\` |
           | Windows ARM64 | \`Pulsar-Native_arm64_${{ needs.resolve.outputs.short }}.zip\` |
+          | Linux x64 | \`Pulsar-Native_linux-x64_${{ needs.resolve.outputs.short }}.zip\` |
+          | Linux ARM64 | \`Pulsar-Native_linux-arm64_${{ needs.resolve.outputs.short }}.zip\` |
+          | macOS ARM64 | \`Pulsar-Native_macos-arm64_${{ needs.resolve.outputs.short }}.zip\` |
 
           > [!CAUTION]
           > These are **automated nightly builds** — they are **not** tested, validated, or
@@ -186,7 +279,7 @@ jobs:
           [**Pulsar-Native**](https://github.com/Far-Beyond-Pulsar/Pulsar-Native) is a next-generation Rust
           game engine where the editor is the runtime and the runtime is the editor.
 
-          This repository distributes **automated Windows binaries** of the latest \`main\` branch
+          This repository distributes **automated binaries** of the latest \`main\` branch
           for evaluation and testing. No source changes are made here — everything in
           [\`code/\`](./code) is a direct mirror of
           [Pulsar-Native](https://github.com/Far-Beyond-Pulsar/Pulsar-Native).
@@ -247,4 +340,7 @@ jobs:
             --notes "$NOTES" \
             --prerelease \
             Pulsar-Native_x64_${{ needs.resolve.outputs.short }}.zip \
-            Pulsar-Native_arm64_${{ needs.resolve.outputs.short }}.zip
+            Pulsar-Native_arm64_${{ needs.resolve.outputs.short }}.zip \
+            Pulsar-Native_linux-x64_${{ needs.resolve.outputs.short }}.zip \
+            Pulsar-Native_linux-arm64_${{ needs.resolve.outputs.short }}.zip \
+            Pulsar-Native_macos-arm64_${{ needs.resolve.outputs.short }}.zip
