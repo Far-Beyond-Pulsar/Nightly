@@ -127,7 +127,7 @@ jobs:
               "echo 'deb [arch=arm64] http://ports.ubuntu.com/ focal main restricted universe multiverse' > /etc/apt/sources.list.d/arm64.list",
               "echo 'deb [arch=arm64] http://ports.ubuntu.com/ focal-updates main restricted universe multiverse' >> /etc/apt/sources.list.d/arm64.list",
               "apt-get update",
-              "apt-get install -y libssl-dev:arm64 libglib2.0-dev:arm64 libxkbcommon-x11-0:arm64 libxkbcommon-x11-dev:arm64 libx11-dev:arm64 libfontconfig-dev:arm64"
+              "sh -c 'cd /tmp && apt-get download libssl-dev:arm64 libglib2.0-dev:arm64 libxkbcommon-x11-0:arm64 libxkbcommon-x11-dev:arm64 libx11-dev:arm64 libfontconfig-dev:arm64 && for f in *.deb; do dpkg-deb -x \"$f\" /; done'"
           ]
           EOF
 
