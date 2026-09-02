@@ -303,5 +303,5 @@ jobs:
             --prerelease \
             Pulsar-Native_x64_${{ needs.resolve.outputs.short }}.zip \
             Pulsar-Native_arm64_${{ needs.resolve.outputs.short }}.zip \
-            Pulsar-Native_linux-x64_${{ needs.resolve.outputs.short }}.zip \
-            Pulsar-Native_macos-arm64_${{ needs.resolve.outputs.short }}.zip
+            Pulsar-Native_linux-x64_${{ needs.resolve.outputs.short }}.zip
+#            Pulsar-Native_macos-arm64_${{ needs.resolve.outputs.short }}.zip
