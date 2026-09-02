@@ -87,10 +87,10 @@ jobs:
             runner: ubuntu-latest
             target: x86_64-unknown-linux-gnu
             archive_suffix: linux-x64
-          - label: macOS ARM64
-            runner: macos-latest
-            target: aarch64-apple-darwin
-            archive_suffix: macos-arm64
+          # - label: macOS ARM64
+          #   runner: macos-latest
+          #   target: aarch64-apple-darwin
+          #   archive_suffix: macos-arm64
     runs-on: ${{ matrix.runner }}
     steps:
       - name: Fetch Pulsar-Native
