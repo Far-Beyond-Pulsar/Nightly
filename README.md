@@ -7,10 +7,10 @@ Automated **nightly builds** of [Pulsar-Native](https://github.com/Far-Beyond-Pu
 
 | Field | Value |
 |---|---|
-| Source commit | [d638cd4f4f0ab2e797a1985878fbd02e5216d02b](https://github.com/Far-Beyond-Pulsar/Pulsar-Native/commit/d638cd4f4f0ab2e797a1985878fbd02e5216d02b) |
+| Source commit | [5166d8b46b981832be48a4931a3e94ef33a609f2](https://github.com/Far-Beyond-Pulsar/Pulsar-Native/commit/5166d8b46b981832be48a4931a3e94ef33a609f2) |
 | Date | 2026-09-02 |
-| Message | `d638cd4 Fixed build errors` |
-| Workflow | [33651556114](https://github.com/Far-Beyond-Pulsar/Nightly/actions/runs/33651556114) |
+| Message | `5166d8b bumps` |
+| Workflow | [33671518050](https://github.com/Far-Beyond-Pulsar/Nightly/actions/runs/33671518050) |
 
 ## 📦 Downloads
 
@@ -18,10 +18,10 @@ Browse the [Releases page](https://github.com/Far-Beyond-Pulsar/Nightly/releases
 
 | Platform | Archive |
 |---|---|
-| Windows x64 | `Pulsar-Native_x64_d638cd4.zip` |
-| Windows ARM64 | `Pulsar-Native_arm64_d638cd4.zip` |
-| Linux x64 | `Pulsar-Native_linux-x64_d638cd4.zip` |
-| macOS ARM64 | `Pulsar-Native_macos-arm64_d638cd4.zip` |
+| Windows x64 | `Pulsar-Native_x64_5166d8b.zip` |
+| Windows ARM64 | `Pulsar-Native_arm64_5166d8b.zip` |
+| Linux x64 | `Pulsar-Native_linux-x64_5166d8b.zip` |
+| macOS ARM64 | `Pulsar-Native_macos-arm64_5166d8b.zip` |
 
 > [!CAUTION]
 > These are **automated nightly builds** — they are **not** tested, validated, or
