@@ -7,10 +7,10 @@ Automated **nightly builds** of [Pulsar-Native](https://github.com/Far-Beyond-Pu
 
 | Field | Value |
 |---|---|
-| Source commit | [5166d8b46b981832be48a4931a3e94ef33a609f2](https://github.com/Far-Beyond-Pulsar/Pulsar-Native/commit/5166d8b46b981832be48a4931a3e94ef33a609f2) |
-| Date | 2026-09-02 |
-| Message | `5166d8b bumps` |
-| Workflow | [33671518050](https://github.com/Far-Beyond-Pulsar/Nightly/actions/runs/33671518050) |
+| Source commit | [72f5416e2d90211a129a7136eedeabbfd382301d](https://github.com/Far-Beyond-Pulsar/Pulsar-Native/commit/72f5416e2d90211a129a7136eedeabbfd382301d) |
+| Date | 2026-09-03 |
+| Message | `72f5416 Merge pull request #690 from Far-Beyond-Pulsar/renovate/softprops-action-gh-release-digest` |
+| Workflow | [33743512674](https://github.com/Far-Beyond-Pulsar/Nightly/actions/runs/33743512674) |
 
 ## 📦 Downloads
 
@@ -18,10 +18,10 @@ Browse the [Releases page](https://github.com/Far-Beyond-Pulsar/Nightly/releases
 
 | Platform | Archive |
 |---|---|
-| Windows x64 | `Pulsar-Native_x64_5166d8b.zip` |
-| Windows ARM64 | `Pulsar-Native_arm64_5166d8b.zip` |
-| Linux x64 | `Pulsar-Native_linux-x64_5166d8b.zip` |
-| macOS ARM64 | `Pulsar-Native_macos-arm64_5166d8b.zip` |
+| Windows x64 | `Pulsar-Native_x64_72f5416.zip` |
+| Windows ARM64 | `Pulsar-Native_arm64_72f5416.zip` |
+| Linux x64 | `Pulsar-Native_linux-x64_72f5416.zip` |
+| macOS ARM64 | `Pulsar-Native_macos-arm64_72f5416.zip` |
 
 > [!CAUTION]
 > These are **automated nightly builds** — they are **not** tested, validated, or
