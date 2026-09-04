@@ -7,10 +7,10 @@ Automated **nightly builds** of [Pulsar-Native](https://github.com/Far-Beyond-Pu
 
 | Field | Value |
 |---|---|
-| Source commit | [72f5416e2d90211a129a7136eedeabbfd382301d](https://github.com/Far-Beyond-Pulsar/Pulsar-Native/commit/72f5416e2d90211a129a7136eedeabbfd382301d) |
+| Source commit | [fb723ba35593e876ccc934555dd45c40b0a8faea](https://github.com/Far-Beyond-Pulsar/Pulsar-Native/commit/fb723ba35593e876ccc934555dd45c40b0a8faea) |
 | Date | 2026-09-03 |
-| Message | `72f5416 Merge pull request #690 from Far-Beyond-Pulsar/renovate/softprops-action-gh-release-digest` |
-| Workflow | [33743512674](https://github.com/Far-Beyond-Pulsar/Nightly/actions/runs/33743512674) |
+| Message | `fb723ba Merge pull request #695 from Far-Beyond-Pulsar/claude/wgpui-layer-rasterization-and-debug-tools` |
+| Workflow | [33861584249](https://github.com/Far-Beyond-Pulsar/Nightly/actions/runs/33861584249) |
 
 ## 📦 Downloads
 
@@ -18,10 +18,10 @@ Browse the [Releases page](https://github.com/Far-Beyond-Pulsar/Nightly/releases
 
 | Platform | Archive |
 |---|---|
-| Windows x64 | `Pulsar-Native_x64_72f5416.zip` |
-| Windows ARM64 | `Pulsar-Native_arm64_72f5416.zip` |
-| Linux x64 | `Pulsar-Native_linux-x64_72f5416.zip` |
-| macOS ARM64 | `Pulsar-Native_macos-arm64_72f5416.zip` |
+| Windows x64 | `Pulsar-Native_x64_fb723ba.zip` |
+| Windows ARM64 | `Pulsar-Native_arm64_fb723ba.zip` |
+| Linux x64 | `Pulsar-Native_linux-x64_fb723ba.zip` |
+| macOS ARM64 | `Pulsar-Native_macos-arm64_fb723ba.zip` |
 
 > [!CAUTION]
 > These are **automated nightly builds** — they are **not** tested, validated, or
