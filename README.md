@@ -7,10 +7,10 @@ Automated **nightly builds** of [Pulsar-Native](https://github.com/Far-Beyond-Pu
 
 | Field | Value |
 |---|---|
-| Source commit | [fb723ba35593e876ccc934555dd45c40b0a8faea](https://github.com/Far-Beyond-Pulsar/Pulsar-Native/commit/fb723ba35593e876ccc934555dd45c40b0a8faea) |
-| Date | 2026-09-03 |
-| Message | `fb723ba Merge pull request #695 from Far-Beyond-Pulsar/claude/wgpui-layer-rasterization-and-debug-tools` |
-| Workflow | [33861584249](https://github.com/Far-Beyond-Pulsar/Nightly/actions/runs/33861584249) |
+| Source commit | [ff059d4f8705420f8ff38296e6465b6f64e0e357](https://github.com/Far-Beyond-Pulsar/Pulsar-Native/commit/ff059d4f8705420f8ff38296e6465b6f64e0e357) |
+| Date | 2026-09-05 |
+| Message | `ff059d4 Merge pull request #696 from Far-Beyond-Pulsar/claude/wgpui-layer-rasterization-and-debug-tools` |
+| Workflow | [34025770868](https://github.com/Far-Beyond-Pulsar/Nightly/actions/runs/34025770868) |
 
 ## 📦 Downloads
 
@@ -18,10 +18,10 @@ Browse the [Releases page](https://github.com/Far-Beyond-Pulsar/Nightly/releases
 
 | Platform | Archive |
 |---|---|
-| Windows x64 | `Pulsar-Native_x64_fb723ba.zip` |
-| Windows ARM64 | `Pulsar-Native_arm64_fb723ba.zip` |
-| Linux x64 | `Pulsar-Native_linux-x64_fb723ba.zip` |
-| macOS ARM64 | `Pulsar-Native_macos-arm64_fb723ba.zip` |
+| Windows x64 | `Pulsar-Native_x64_ff059d4.zip` |
+| Windows ARM64 | `Pulsar-Native_arm64_ff059d4.zip` |
+| Linux x64 | `Pulsar-Native_linux-x64_ff059d4.zip` |
+| macOS ARM64 | `Pulsar-Native_macos-arm64_ff059d4.zip` |
 
 > [!CAUTION]
 > These are **automated nightly builds** — they are **not** tested, validated, or
