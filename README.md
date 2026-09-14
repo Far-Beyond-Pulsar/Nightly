@@ -7,10 +7,10 @@ Automated **nightly builds** of [Pulsar-Native](https://github.com/Far-Beyond-Pu
 
 | Field | Value |
 |---|---|
-| Source commit | [ff059d4f8705420f8ff38296e6465b6f64e0e357](https://github.com/Far-Beyond-Pulsar/Pulsar-Native/commit/ff059d4f8705420f8ff38296e6465b6f64e0e357) |
-| Date | 2026-09-05 |
-| Message | `ff059d4 Merge pull request #696 from Far-Beyond-Pulsar/claude/wgpui-layer-rasterization-and-debug-tools` |
-| Workflow | [34025770868](https://github.com/Far-Beyond-Pulsar/Nightly/actions/runs/34025770868) |
+| Source commit | [4599a9ec8d7ee34e79fff504a1c90d449cd3a2f2](https://github.com/Far-Beyond-Pulsar/Pulsar-Native/commit/4599a9ec8d7ee34e79fff504a1c90d449cd3a2f2) |
+| Date | 2026-09-13 |
+| Message | `4599a9e Merge pull request #689 from Far-Beyond-Pulsar/renovate/docker-setup-qemu-action-digest` |
+| Workflow | [34836695315](https://github.com/Far-Beyond-Pulsar/Nightly/actions/runs/34836695315) |
 
 ## 📦 Downloads
 
@@ -18,10 +18,10 @@ Browse the [Releases page](https://github.com/Far-Beyond-Pulsar/Nightly/releases
 
 | Platform | Archive |
 |---|---|
-| Windows x64 | `Pulsar-Native_x64_ff059d4.zip` |
-| Windows ARM64 | `Pulsar-Native_arm64_ff059d4.zip` |
-| Linux x64 | `Pulsar-Native_linux-x64_ff059d4.zip` |
-| macOS ARM64 | `Pulsar-Native_macos-arm64_ff059d4.zip` |
+| Windows x64 | `Pulsar-Native_x64_4599a9e.zip` |
+| Windows ARM64 | `Pulsar-Native_arm64_4599a9e.zip` |
+| Linux x64 | `Pulsar-Native_linux-x64_4599a9e.zip` |
+| macOS ARM64 | `Pulsar-Native_macos-arm64_4599a9e.zip` |
 
 > [!CAUTION]
 > These are **automated nightly builds** — they are **not** tested, validated, or
