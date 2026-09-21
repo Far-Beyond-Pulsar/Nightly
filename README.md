@@ -7,10 +7,10 @@ Automated **nightly builds** of [Pulsar-Native](https://github.com/Far-Beyond-Pu
 
 | Field | Value |
 |---|---|
-| Source commit | [f879649ea5e37a704eeed02055acf34c89957d13](https://github.com/Far-Beyond-Pulsar/Pulsar-Native/commit/f879649ea5e37a704eeed02055acf34c89957d13) |
-| Date | 2026-09-18 |
-| Message | `f879649 toolmode structure improvwements` |
-| Workflow | [35333406153](https://github.com/Far-Beyond-Pulsar/Nightly/actions/runs/35333406153) |
+| Source commit | [af49366a90a612b742139bd8774b456dc4f524cf](https://github.com/Far-Beyond-Pulsar/Pulsar-Native/commit/af49366a90a612b742139bd8774b456dc4f524cf) |
+| Date | 2026-09-21 |
+| Message | `af49366 Add HLFS cathedral asset generator tests` |
+| Workflow | [35593420729](https://github.com/Far-Beyond-Pulsar/Nightly/actions/runs/35593420729) |
 
 ## 📦 Downloads
 
@@ -18,10 +18,10 @@ Browse the [Releases page](https://github.com/Far-Beyond-Pulsar/Nightly/releases
 
 | Platform | Archive |
 |---|---|
-| Windows x64 | `Pulsar-Native_x64_f879649.zip` |
-| Windows ARM64 | `Pulsar-Native_arm64_f879649.zip` |
-| Linux x64 | `Pulsar-Native_linux-x64_f879649.zip` |
-| macOS ARM64 | `Pulsar-Native_macos-arm64_f879649.zip` |
+| Windows x64 | `Pulsar-Native_x64_af49366.zip` |
+| Windows ARM64 | `Pulsar-Native_arm64_af49366.zip` |
+| Linux x64 | `Pulsar-Native_linux-x64_af49366.zip` |
+| macOS ARM64 | `Pulsar-Native_macos-arm64_af49366.zip` |
 
 > [!CAUTION]
 > These are **automated nightly builds** — they are **not** tested, validated, or
