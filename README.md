@@ -7,10 +7,10 @@ Automated **nightly builds** of [Pulsar-Native](https://github.com/Far-Beyond-Pu
 
 | Field | Value |
 |---|---|
-| Source commit | [3746651e5df5157078e3d911a3d2cb35a363f52b](https://github.com/Far-Beyond-Pulsar/Pulsar-Native/commit/3746651e5df5157078e3d911a3d2cb35a363f52b) |
+| Source commit | [8982dc5b029408e4756f9e41828258fc37900891](https://github.com/Far-Beyond-Pulsar/Pulsar-Native/commit/8982dc5b029408e4756f9e41828258fc37900891) |
 | Date | 2026-09-26 |
-| Message | `3746651 Merge pull request #948 from Far-Beyond-Pulsar/claude/serene-keller-ma920s` |
-| Workflow | [36235825651](https://github.com/Far-Beyond-Pulsar/Nightly/actions/runs/36235825651) |
+| Message | `8982dc5 Merge pull request #965 from Far-Beyond-Pulsar/claude/serene-keller-ma920s` |
+| Workflow | [36314212338](https://github.com/Far-Beyond-Pulsar/Nightly/actions/runs/36314212338) |
 
 ## 📦 Downloads
 
@@ -18,10 +18,10 @@ Browse the [Releases page](https://github.com/Far-Beyond-Pulsar/Nightly/releases
 
 | Platform | Archive |
 |---|---|
-| Windows x64 | `Pulsar-Native_x64_3746651.zip` |
-| Windows ARM64 | `Pulsar-Native_arm64_3746651.zip` |
-| Linux x64 | `Pulsar-Native_linux-x64_3746651.zip` |
-| macOS ARM64 | `Pulsar-Native_macos-arm64_3746651.zip` |
+| Windows x64 | `Pulsar-Native_x64_8982dc5.zip` |
+| Windows ARM64 | `Pulsar-Native_arm64_8982dc5.zip` |
+| Linux x64 | `Pulsar-Native_linux-x64_8982dc5.zip` |
+| macOS ARM64 | `Pulsar-Native_macos-arm64_8982dc5.zip` |
 
 > [!CAUTION]
 > These are **automated nightly builds** — they are **not** tested, validated, or
