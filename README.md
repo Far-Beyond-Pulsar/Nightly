@@ -7,10 +7,10 @@ Automated **nightly builds** of [Pulsar-Native](https://github.com/Far-Beyond-Pu
 
 | Field | Value |
 |---|---|
-| Source commit | [5c993bc532ae9bf230ab1be3c0b9556aee8c1f4a](https://github.com/Far-Beyond-Pulsar/Pulsar-Native/commit/5c993bc532ae9bf230ab1be3c0b9556aee8c1f4a) |
-| Date | 2026-09-27 |
-| Message | `5c993bc Merge pull request #966 from Far-Beyond-Pulsar/claude/wonderful-heisenberg-ovrxoo` |
-| Workflow | [36420571687](https://github.com/Far-Beyond-Pulsar/Nightly/actions/runs/36420571687) |
+| Source commit | [98366e02114e0b04052c9f8c939b84ca9a8f3802](https://github.com/Far-Beyond-Pulsar/Pulsar-Native/commit/98366e02114e0b04052c9f8c939b84ca9a8f3802) |
+| Date | 2026-09-28 |
+| Message | `98366e0 Fix hierarchy movable action icon` |
+| Workflow | [36563571455](https://github.com/Far-Beyond-Pulsar/Nightly/actions/runs/36563571455) |
 
 ## 📦 Downloads
 
@@ -18,10 +18,10 @@ Browse the [Releases page](https://github.com/Far-Beyond-Pulsar/Nightly/releases
 
 | Platform | Archive |
 |---|---|
-| Windows x64 | `Pulsar-Native_x64_5c993bc.zip` |
-| Windows ARM64 | `Pulsar-Native_arm64_5c993bc.zip` |
-| Linux x64 | `Pulsar-Native_linux-x64_5c993bc.zip` |
-| macOS ARM64 | `Pulsar-Native_macos-arm64_5c993bc.zip` |
+| Windows x64 | `Pulsar-Native_x64_98366e0.zip` |
+| Windows ARM64 | `Pulsar-Native_arm64_98366e0.zip` |
+| Linux x64 | `Pulsar-Native_linux-x64_98366e0.zip` |
+| macOS ARM64 | `Pulsar-Native_macos-arm64_98366e0.zip` |
 
 > [!CAUTION]
 > These are **automated nightly builds** — they are **not** tested, validated, or
