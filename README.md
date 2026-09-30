@@ -7,10 +7,10 @@ Automated **nightly builds** of [Pulsar-Native](https://github.com/Far-Beyond-Pu
 
 | Field | Value |
 |---|---|
-| Source commit | [98366e02114e0b04052c9f8c939b84ca9a8f3802](https://github.com/Far-Beyond-Pulsar/Pulsar-Native/commit/98366e02114e0b04052c9f8c939b84ca9a8f3802) |
-| Date | 2026-09-28 |
-| Message | `98366e0 Fix hierarchy movable action icon` |
-| Workflow | [36563571455](https://github.com/Far-Beyond-Pulsar/Nightly/actions/runs/36563571455) |
+| Source commit | [ab18c595abc2ece77f8e2db4474c5b4b1f88923f](https://github.com/Far-Beyond-Pulsar/Pulsar-Native/commit/ab18c595abc2ece77f8e2db4474c5b4b1f88923f) |
+| Date | 2026-09-30 |
+| Message | `ab18c59 Voxel terrain: pin Helio fixes for coarse overlay and streaming while moving (#989)` |
+| Workflow | [36708963943](https://github.com/Far-Beyond-Pulsar/Nightly/actions/runs/36708963943) |
 
 ## 📦 Downloads
 
@@ -18,10 +18,10 @@ Browse the [Releases page](https://github.com/Far-Beyond-Pulsar/Nightly/releases
 
 | Platform | Archive |
 |---|---|
-| Windows x64 | `Pulsar-Native_x64_98366e0.zip` |
-| Windows ARM64 | `Pulsar-Native_arm64_98366e0.zip` |
-| Linux x64 | `Pulsar-Native_linux-x64_98366e0.zip` |
-| macOS ARM64 | `Pulsar-Native_macos-arm64_98366e0.zip` |
+| Windows x64 | `Pulsar-Native_x64_ab18c59.zip` |
+| Windows ARM64 | `Pulsar-Native_arm64_ab18c59.zip` |
+| Linux x64 | `Pulsar-Native_linux-x64_ab18c59.zip` |
+| macOS ARM64 | `Pulsar-Native_macos-arm64_ab18c59.zip` |
 
 > [!CAUTION]
 > These are **automated nightly builds** — they are **not** tested, validated, or
