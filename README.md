@@ -7,10 +7,10 @@ Automated **nightly builds** of [Pulsar-Native](https://github.com/Far-Beyond-Pu
 
 | Field | Value |
 |---|---|
-| Source commit | [4aced8e9d05ccad244d216f8b090957c49bd30a4](https://github.com/Far-Beyond-Pulsar/Pulsar-Native/commit/4aced8e9d05ccad244d216f8b090957c49bd30a4) |
-| Date | 2026-10-01 |
-| Message | `4aced8e Remove properties panel frame-pump polling` |
-| Workflow | [37001391783](https://github.com/Far-Beyond-Pulsar/Nightly/actions/runs/37001391783) |
+| Source commit | [d295763d79b3d1fdbee00999e749a0db699b3d73](https://github.com/Far-Beyond-Pulsar/Pulsar-Native/commit/d295763d79b3d1fdbee00999e749a0db699b3d73) |
+| Date | 2026-10-04 |
+| Message | `d295763 Update wgpui` |
+| Workflow | [37226771481](https://github.com/Far-Beyond-Pulsar/Nightly/actions/runs/37226771481) |
 
 ## 📦 Downloads
 
@@ -18,10 +18,10 @@ Browse the [Releases page](https://github.com/Far-Beyond-Pulsar/Nightly/releases
 
 | Platform | Archive |
 |---|---|
-| Windows x64 | `Pulsar-Native_x64_4aced8e.zip` |
-| Windows ARM64 | `Pulsar-Native_arm64_4aced8e.zip` |
-| Linux x64 | `Pulsar-Native_linux-x64_4aced8e.zip` |
-| macOS ARM64 | `Pulsar-Native_macos-arm64_4aced8e.zip` |
+| Windows x64 | `Pulsar-Native_x64_d295763.zip` |
+| Windows ARM64 | `Pulsar-Native_arm64_d295763.zip` |
+| Linux x64 | `Pulsar-Native_linux-x64_d295763.zip` |
+| macOS ARM64 | `Pulsar-Native_macos-arm64_d295763.zip` |
 
 > [!CAUTION]
 > These are **automated nightly builds** — they are **not** tested, validated, or
