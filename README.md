@@ -7,10 +7,10 @@ Automated **nightly builds** of [Pulsar-Native](https://github.com/Far-Beyond-Pu
 
 | Field | Value |
 |---|---|
-| Source commit | [d295763d79b3d1fdbee00999e749a0db699b3d73](https://github.com/Far-Beyond-Pulsar/Pulsar-Native/commit/d295763d79b3d1fdbee00999e749a0db699b3d73) |
+| Source commit | [6593c311ef1b1c040e830855aa32e8a047e97cba](https://github.com/Far-Beyond-Pulsar/Pulsar-Native/commit/6593c311ef1b1c040e830855aa32e8a047e97cba) |
 | Date | 2026-10-04 |
-| Message | `d295763 Update wgpui` |
-| Workflow | [37226771481](https://github.com/Far-Beyond-Pulsar/Nightly/actions/runs/37226771481) |
+| Message | `6593c31 docs: define SceneDB correction contracts and audit` |
+| Workflow | [37312814286](https://github.com/Far-Beyond-Pulsar/Nightly/actions/runs/37312814286) |
 
 ## 📦 Downloads
 
@@ -18,10 +18,10 @@ Browse the [Releases page](https://github.com/Far-Beyond-Pulsar/Nightly/releases
 
 | Platform | Archive |
 |---|---|
-| Windows x64 | `Pulsar-Native_x64_d295763.zip` |
-| Windows ARM64 | `Pulsar-Native_arm64_d295763.zip` |
-| Linux x64 | `Pulsar-Native_linux-x64_d295763.zip` |
-| macOS ARM64 | `Pulsar-Native_macos-arm64_d295763.zip` |
+| Windows x64 | `Pulsar-Native_x64_6593c31.zip` |
+| Windows ARM64 | `Pulsar-Native_arm64_6593c31.zip` |
+| Linux x64 | `Pulsar-Native_linux-x64_6593c31.zip` |
+| macOS ARM64 | `Pulsar-Native_macos-arm64_6593c31.zip` |
 
 > [!CAUTION]
 > These are **automated nightly builds** — they are **not** tested, validated, or
