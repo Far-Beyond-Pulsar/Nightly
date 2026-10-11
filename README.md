@@ -7,10 +7,10 @@ Automated **nightly builds** of [Pulsar-Native](https://github.com/Far-Beyond-Pu
 
 | Field | Value |
 |---|---|
-| Source commit | [e100bbc25e82379ae1dce579b864b98aa85cf6ac](https://github.com/Far-Beyond-Pulsar/Pulsar-Native/commit/e100bbc25e82379ae1dce579b864b98aa85cf6ac) |
+| Source commit | [a9de1a8c94c0dcfdeaa284559ccb09d98581290f](https://github.com/Far-Beyond-Pulsar/Pulsar-Native/commit/a9de1a8c94c0dcfdeaa284559ccb09d98581290f) |
 | Date | 2026-10-10 |
-| Message | `e100bbc Merge pull request #1135 from Far-Beyond-Pulsar/claude/cool-hypatia-ict23g` |
-| Workflow | [38048684650](https://github.com/Far-Beyond-Pulsar/Nightly/actions/runs/38048684650) |
+| Message | `a9de1a8 Merge pull request #1149 from Far-Beyond-Pulsar/claude/cool-hypatia-ict23g` |
+| Workflow | [38136670784](https://github.com/Far-Beyond-Pulsar/Nightly/actions/runs/38136670784) |
 
 ## 📦 Downloads
 
@@ -18,10 +18,10 @@ Browse the [Releases page](https://github.com/Far-Beyond-Pulsar/Nightly/releases
 
 | Platform | Archive |
 |---|---|
-| Windows x64 | `Pulsar-Native_x64_e100bbc.zip` |
-| Windows ARM64 | `Pulsar-Native_arm64_e100bbc.zip` |
-| Linux x64 | `Pulsar-Native_linux-x64_e100bbc.zip` |
-| macOS ARM64 | `Pulsar-Native_macos-arm64_e100bbc.zip` |
+| Windows x64 | `Pulsar-Native_x64_a9de1a8.zip` |
+| Windows ARM64 | `Pulsar-Native_arm64_a9de1a8.zip` |
+| Linux x64 | `Pulsar-Native_linux-x64_a9de1a8.zip` |
+| macOS ARM64 | `Pulsar-Native_macos-arm64_a9de1a8.zip` |
 
 > [!CAUTION]
 > These are **automated nightly builds** — they are **not** tested, validated, or
