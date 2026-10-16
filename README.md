@@ -7,10 +7,10 @@ Automated **nightly builds** of [Pulsar-Native](https://github.com/Far-Beyond-Pu
 
 | Field | Value |
 |---|---|
-| Source commit | [bf951f2341c4cfb758ed2ea0da93834db6cf7b15](https://github.com/Far-Beyond-Pulsar/Pulsar-Native/commit/bf951f2341c4cfb758ed2ea0da93834db6cf7b15) |
-| Date | 2026-10-13 |
-| Message | `bf951f2 Log every saved tab the layout restore resolves, and the tabs of each saved pop-out` |
-| Workflow | [38402264716](https://github.com/Far-Beyond-Pulsar/Nightly/actions/runs/38402264716) |
+| Source commit | [78333b97c4096835aa59c28a83f086252138abf9](https://github.com/Far-Beyond-Pulsar/Pulsar-Native/commit/78333b97c4096835aa59c28a83f086252138abf9) |
+| Date | 2026-10-16 |
+| Message | `78333b9 Update input_thread.rs` |
+| Workflow | [38959585594](https://github.com/Far-Beyond-Pulsar/Nightly/actions/runs/38959585594) |
 
 ## 📦 Downloads
 
@@ -18,10 +18,10 @@ Browse the [Releases page](https://github.com/Far-Beyond-Pulsar/Nightly/releases
 
 | Platform | Archive |
 |---|---|
-| Windows x64 | `Pulsar-Native_x64_bf951f2.zip` |
-| Windows ARM64 | `Pulsar-Native_arm64_bf951f2.zip` |
-| Linux x64 | `Pulsar-Native_linux-x64_bf951f2.zip` |
-| macOS ARM64 | `Pulsar-Native_macos-arm64_bf951f2.zip` |
+| Windows x64 | `Pulsar-Native_x64_78333b9.zip` |
+| Windows ARM64 | `Pulsar-Native_arm64_78333b9.zip` |
+| Linux x64 | `Pulsar-Native_linux-x64_78333b9.zip` |
+| macOS ARM64 | `Pulsar-Native_macos-arm64_78333b9.zip` |
 
 > [!CAUTION]
 > These are **automated nightly builds** — they are **not** tested, validated, or
