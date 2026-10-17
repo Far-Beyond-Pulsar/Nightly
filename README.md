@@ -7,10 +7,10 @@ Automated **nightly builds** of [Pulsar-Native](https://github.com/Far-Beyond-Pu
 
 | Field | Value |
 |---|---|
-| Source commit | [78333b97c4096835aa59c28a83f086252138abf9](https://github.com/Far-Beyond-Pulsar/Pulsar-Native/commit/78333b97c4096835aa59c28a83f086252138abf9) |
+| Source commit | [653725e882c63a0eb92b6a46680b1f0f85cb4391](https://github.com/Far-Beyond-Pulsar/Pulsar-Native/commit/653725e882c63a0eb92b6a46680b1f0f85cb4391) |
 | Date | 2026-10-16 |
-| Message | `78333b9 Update input_thread.rs` |
-| Workflow | [38959585594](https://github.com/Far-Beyond-Pulsar/Nightly/actions/runs/38959585594) |
+| Message | `653725e Tie Windows viewport mouse capture to focus/button` |
+| Workflow | [39022687307](https://github.com/Far-Beyond-Pulsar/Nightly/actions/runs/39022687307) |
 
 ## 📦 Downloads
 
@@ -18,10 +18,10 @@ Browse the [Releases page](https://github.com/Far-Beyond-Pulsar/Nightly/releases
 
 | Platform | Archive |
 |---|---|
-| Windows x64 | `Pulsar-Native_x64_78333b9.zip` |
-| Windows ARM64 | `Pulsar-Native_arm64_78333b9.zip` |
-| Linux x64 | `Pulsar-Native_linux-x64_78333b9.zip` |
-| macOS ARM64 | `Pulsar-Native_macos-arm64_78333b9.zip` |
+| Windows x64 | `Pulsar-Native_x64_653725e.zip` |
+| Windows ARM64 | `Pulsar-Native_arm64_653725e.zip` |
+| Linux x64 | `Pulsar-Native_linux-x64_653725e.zip` |
+| macOS ARM64 | `Pulsar-Native_macos-arm64_653725e.zip` |
 
 > [!CAUTION]
 > These are **automated nightly builds** — they are **not** tested, validated, or
