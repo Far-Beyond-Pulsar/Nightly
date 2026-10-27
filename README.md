@@ -7,10 +7,10 @@ Automated **nightly builds** of [Pulsar-Native](https://github.com/Far-Beyond-Pu
 
 | Field | Value |
 |---|---|
-| Source commit | [be88faccfc254e728b66050a3a38e73bce2cd4c5](https://github.com/Far-Beyond-Pulsar/Pulsar-Native/commit/be88faccfc254e728b66050a3a38e73bce2cd4c5) |
-| Date | 2026-10-25 |
-| Message | `be88fac Update render.rs` |
-| Workflow | [40261273611](https://github.com/Far-Beyond-Pulsar/Nightly/actions/runs/40261273611) |
+| Source commit | [dd8877ffe7843ed1ea3924dbe36f8b41471f26ea](https://github.com/Far-Beyond-Pulsar/Pulsar-Native/commit/dd8877ffe7843ed1ea3924dbe36f8b41471f26ea) |
+| Date | 2026-10-26 |
+| Message | `dd8877f fmt` |
+| Workflow | [40494377882](https://github.com/Far-Beyond-Pulsar/Nightly/actions/runs/40494377882) |
 
 ## 📦 Downloads
 
@@ -18,10 +18,10 @@ Browse the [Releases page](https://github.com/Far-Beyond-Pulsar/Nightly/releases
 
 | Platform | Archive |
 |---|---|
-| Windows x64 | `Pulsar-Native_x64_be88fac.zip` |
-| Windows ARM64 | `Pulsar-Native_arm64_be88fac.zip` |
-| Linux x64 | `Pulsar-Native_linux-x64_be88fac.zip` |
-| macOS ARM64 | `Pulsar-Native_macos-arm64_be88fac.zip` |
+| Windows x64 | `Pulsar-Native_x64_dd8877f.zip` |
+| Windows ARM64 | `Pulsar-Native_arm64_dd8877f.zip` |
+| Linux x64 | `Pulsar-Native_linux-x64_dd8877f.zip` |
+| macOS ARM64 | `Pulsar-Native_macos-arm64_dd8877f.zip` |
 
 > [!CAUTION]
 > These are **automated nightly builds** — they are **not** tested, validated, or
