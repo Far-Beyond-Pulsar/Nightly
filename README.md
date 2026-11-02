@@ -7,10 +7,10 @@ Automated **nightly builds** of [Pulsar-Native](https://github.com/Far-Beyond-Pu
 
 | Field | Value |
 |---|---|
-| Source commit | [edfbcf35af86261008e7cf2dbb44b6362d01b83a](https://github.com/Far-Beyond-Pulsar/Pulsar-Native/commit/edfbcf35af86261008e7cf2dbb44b6362d01b83a) |
-| Date | 2026-10-30 |
-| Message | `edfbcf3 Merge pull request #1553 from aasul/codex/helio-solid3d-merged-pins` |
-| Workflow | [41196538257](https://github.com/Far-Beyond-Pulsar/Nightly/actions/runs/41196538257) |
+| Source commit | [d304dd6730242e6d8e2e3f5b6f05ccc2b506cc88](https://github.com/Far-Beyond-Pulsar/Pulsar-Native/commit/d304dd6730242e6d8e2e3f5b6f05ccc2b506cc88) |
+| Date | 2026-11-01 |
+| Message | `d304dd6 Update helio` |
+| Workflow | [41458382013](https://github.com/Far-Beyond-Pulsar/Nightly/actions/runs/41458382013) |
 
 ## 📦 Downloads
 
@@ -18,10 +18,10 @@ Browse the [Releases page](https://github.com/Far-Beyond-Pulsar/Nightly/releases
 
 | Platform | Archive |
 |---|---|
-| Windows x64 | `Pulsar-Native_x64_edfbcf3.zip` |
-| Windows ARM64 | `Pulsar-Native_arm64_edfbcf3.zip` |
-| Linux x64 | `Pulsar-Native_linux-x64_edfbcf3.zip` |
-| macOS ARM64 | `Pulsar-Native_macos-arm64_edfbcf3.zip` |
+| Windows x64 | `Pulsar-Native_x64_d304dd6.zip` |
+| Windows ARM64 | `Pulsar-Native_arm64_d304dd6.zip` |
+| Linux x64 | `Pulsar-Native_linux-x64_d304dd6.zip` |
+| macOS ARM64 | `Pulsar-Native_macos-arm64_d304dd6.zip` |
 
 > [!CAUTION]
 > These are **automated nightly builds** — they are **not** tested, validated, or
