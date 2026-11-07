@@ -7,10 +7,10 @@ Automated **nightly builds** of [Pulsar-Native](https://github.com/Far-Beyond-Pu
 
 | Field | Value |
 |---|---|
-| Source commit | [6a305bf802082c712fcf028ba5fe2b8b48e081e9](https://github.com/Far-Beyond-Pulsar/Pulsar-Native/commit/6a305bf802082c712fcf028ba5fe2b8b48e081e9) |
-| Date | 2026-11-02 |
-| Message | `6a305bf Updates` |
-| Workflow | [41641992041](https://github.com/Far-Beyond-Pulsar/Nightly/actions/runs/41641992041) |
+| Source commit | [38b2513a1ed55e620cdbc9f849086a3301c70e50](https://github.com/Far-Beyond-Pulsar/Pulsar-Native/commit/38b2513a1ed55e620cdbc9f849086a3301c70e50) |
+| Date | 2026-11-06 |
+| Message | `38b2513 Merge pull request #1597 from aasul/feat/animation-cubic-spline` |
+| Workflow | [42370632143](https://github.com/Far-Beyond-Pulsar/Nightly/actions/runs/42370632143) |
 
 ## 📦 Downloads
 
@@ -18,10 +18,10 @@ Browse the [Releases page](https://github.com/Far-Beyond-Pulsar/Nightly/releases
 
 | Platform | Archive |
 |---|---|
-| Windows x64 | `Pulsar-Native_x64_6a305bf.zip` |
-| Windows ARM64 | `Pulsar-Native_arm64_6a305bf.zip` |
-| Linux x64 | `Pulsar-Native_linux-x64_6a305bf.zip` |
-| macOS ARM64 | `Pulsar-Native_macos-arm64_6a305bf.zip` |
+| Windows x64 | `Pulsar-Native_x64_38b2513.zip` |
+| Windows ARM64 | `Pulsar-Native_arm64_38b2513.zip` |
+| Linux x64 | `Pulsar-Native_linux-x64_38b2513.zip` |
+| macOS ARM64 | `Pulsar-Native_macos-arm64_38b2513.zip` |
 
 > [!CAUTION]
 > These are **automated nightly builds** — they are **not** tested, validated, or
