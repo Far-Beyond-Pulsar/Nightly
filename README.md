@@ -7,10 +7,10 @@ Automated **nightly builds** of [Pulsar-Native](https://github.com/Far-Beyond-Pu
 
 | Field | Value |
 |---|---|
-| Source commit | [223456ccc6217637ac3f79061170720bd5066265](https://github.com/Far-Beyond-Pulsar/Pulsar-Native/commit/223456ccc6217637ac3f79061170720bd5066265) |
-| Date | 2026-11-13 |
-| Message | `223456c Merge pull request #1686 from Far-Beyond-Pulsar/rewrite/p23-render-runtimes` |
-| Workflow | [43434699980](https://github.com/Far-Beyond-Pulsar/Nightly/actions/runs/43434699980) |
+| Source commit | [514a4bae28921a4c7cfdaeaef46a2d2e7264e634](https://github.com/Far-Beyond-Pulsar/Pulsar-Native/commit/514a4bae28921a4c7cfdaeaef46a2d2e7264e634) |
+| Date | 2026-11-14 |
+| Message | `514a4ba Merge pull request #1691 from Far-Beyond-Pulsar/rewrite/p24-frame-owners` |
+| Workflow | [43595873511](https://github.com/Far-Beyond-Pulsar/Nightly/actions/runs/43595873511) |
 
 ## 📦 Downloads
 
@@ -18,10 +18,10 @@ Browse the [Releases page](https://github.com/Far-Beyond-Pulsar/Nightly/releases
 
 | Platform | Archive |
 |---|---|
-| Windows x64 | `Pulsar-Native_x64_223456c.zip` |
-| Windows ARM64 | `Pulsar-Native_arm64_223456c.zip` |
-| Linux x64 | `Pulsar-Native_linux-x64_223456c.zip` |
-| macOS ARM64 | `Pulsar-Native_macos-arm64_223456c.zip` |
+| Windows x64 | `Pulsar-Native_x64_514a4ba.zip` |
+| Windows ARM64 | `Pulsar-Native_arm64_514a4ba.zip` |
+| Linux x64 | `Pulsar-Native_linux-x64_514a4ba.zip` |
+| macOS ARM64 | `Pulsar-Native_macos-arm64_514a4ba.zip` |
 
 > [!CAUTION]
 > These are **automated nightly builds** — they are **not** tested, validated, or
