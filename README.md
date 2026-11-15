@@ -7,10 +7,10 @@ Automated **nightly builds** of [Pulsar-Native](https://github.com/Far-Beyond-Pu
 
 | Field | Value |
 |---|---|
-| Source commit | [514a4bae28921a4c7cfdaeaef46a2d2e7264e634](https://github.com/Far-Beyond-Pulsar/Pulsar-Native/commit/514a4bae28921a4c7cfdaeaef46a2d2e7264e634) |
+| Source commit | [ba180bff83a2603fdc38d28de25673577a3aa689](https://github.com/Far-Beyond-Pulsar/Pulsar-Native/commit/ba180bff83a2603fdc38d28de25673577a3aa689) |
 | Date | 2026-11-14 |
-| Message | `514a4ba Merge pull request #1691 from Far-Beyond-Pulsar/rewrite/p24-frame-owners` |
-| Workflow | [43595873511](https://github.com/Far-Beyond-Pulsar/Nightly/actions/runs/43595873511) |
+| Message | `ba180bf Make editor UI dependencies opt-in` |
+| Workflow | [43717126468](https://github.com/Far-Beyond-Pulsar/Nightly/actions/runs/43717126468) |
 
 ## 📦 Downloads
 
@@ -18,10 +18,10 @@ Browse the [Releases page](https://github.com/Far-Beyond-Pulsar/Nightly/releases
 
 | Platform | Archive |
 |---|---|
-| Windows x64 | `Pulsar-Native_x64_514a4ba.zip` |
-| Windows ARM64 | `Pulsar-Native_arm64_514a4ba.zip` |
-| Linux x64 | `Pulsar-Native_linux-x64_514a4ba.zip` |
-| macOS ARM64 | `Pulsar-Native_macos-arm64_514a4ba.zip` |
+| Windows x64 | `Pulsar-Native_x64_ba180bf.zip` |
+| Windows ARM64 | `Pulsar-Native_arm64_ba180bf.zip` |
+| Linux x64 | `Pulsar-Native_linux-x64_ba180bf.zip` |
+| macOS ARM64 | `Pulsar-Native_macos-arm64_ba180bf.zip` |
 
 > [!CAUTION]
 > These are **automated nightly builds** — they are **not** tested, validated, or
