@@ -7,10 +7,10 @@ Automated **nightly builds** of [Pulsar-Native](https://github.com/Far-Beyond-Pu
 
 | Field | Value |
 |---|---|
-| Source commit | [76f61b4591c2a2494741d8002d9351362bcbc08d](https://github.com/Far-Beyond-Pulsar/Pulsar-Native/commit/76f61b4591c2a2494741d8002d9351362bcbc08d) |
-| Date | 2026-11-16 |
-| Message | `76f61b4 Merge pull request #1746 from Far-Beyond-Pulsar/rewrite/p25-views` |
-| Workflow | [43883183944](https://github.com/Far-Beyond-Pulsar/Nightly/actions/runs/43883183944) |
+| Source commit | [0690d586ea165100185bdc6fc392759f3b565d49](https://github.com/Far-Beyond-Pulsar/Pulsar-Native/commit/0690d586ea165100185bdc6fc392759f3b565d49) |
+| Date | 2026-11-17 |
+| Message | `0690d58 Move Sketchfab viewer to content menus` |
+| Workflow | [44327447290](https://github.com/Far-Beyond-Pulsar/Nightly/actions/runs/44327447290) |
 
 ## 📦 Downloads
 
@@ -18,10 +18,10 @@ Browse the [Releases page](https://github.com/Far-Beyond-Pulsar/Nightly/releases
 
 | Platform | Archive |
 |---|---|
-| Windows x64 | `Pulsar-Native_x64_76f61b4.zip` |
-| Windows ARM64 | `Pulsar-Native_arm64_76f61b4.zip` |
-| Linux x64 | `Pulsar-Native_linux-x64_76f61b4.zip` |
-| macOS ARM64 | `Pulsar-Native_macos-arm64_76f61b4.zip` |
+| Windows x64 | `Pulsar-Native_x64_0690d58.zip` |
+| Windows ARM64 | `Pulsar-Native_arm64_0690d58.zip` |
+| Linux x64 | `Pulsar-Native_linux-x64_0690d58.zip` |
+| macOS ARM64 | `Pulsar-Native_macos-arm64_0690d58.zip` |
 
 > [!CAUTION]
 > These are **automated nightly builds** — they are **not** tested, validated, or
