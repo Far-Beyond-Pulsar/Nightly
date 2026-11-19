@@ -7,10 +7,10 @@ Automated **nightly builds** of [Pulsar-Native](https://github.com/Far-Beyond-Pu
 
 | Field | Value |
 |---|---|
-| Source commit | [0690d586ea165100185bdc6fc392759f3b565d49](https://github.com/Far-Beyond-Pulsar/Pulsar-Native/commit/0690d586ea165100185bdc6fc392759f3b565d49) |
-| Date | 2026-11-17 |
-| Message | `0690d58 Move Sketchfab viewer to content menus` |
-| Workflow | [44327447290](https://github.com/Far-Beyond-Pulsar/Nightly/actions/runs/44327447290) |
+| Source commit | [7a7b54d7e5d292c0e1cc044ba76d0807ab5047a6](https://github.com/Far-Beyond-Pulsar/Pulsar-Native/commit/7a7b54d7e5d292c0e1cc044ba76d0807ab5047a6) |
+| Date | 2026-11-19 |
+| Message | `7a7b54d Script languages: shared ModuleBuilder, SCRIPT_LANGUAGES guide and /add-language skill (P6)` |
+| Workflow | [44548181772](https://github.com/Far-Beyond-Pulsar/Nightly/actions/runs/44548181772) |
 
 ## 📦 Downloads
 
@@ -18,10 +18,10 @@ Browse the [Releases page](https://github.com/Far-Beyond-Pulsar/Nightly/releases
 
 | Platform | Archive |
 |---|---|
-| Windows x64 | `Pulsar-Native_x64_0690d58.zip` |
-| Windows ARM64 | `Pulsar-Native_arm64_0690d58.zip` |
-| Linux x64 | `Pulsar-Native_linux-x64_0690d58.zip` |
-| macOS ARM64 | `Pulsar-Native_macos-arm64_0690d58.zip` |
+| Windows x64 | `Pulsar-Native_x64_7a7b54d.zip` |
+| Windows ARM64 | `Pulsar-Native_arm64_7a7b54d.zip` |
+| Linux x64 | `Pulsar-Native_linux-x64_7a7b54d.zip` |
+| macOS ARM64 | `Pulsar-Native_macos-arm64_7a7b54d.zip` |
 
 > [!CAUTION]
 > These are **automated nightly builds** — they are **not** tested, validated, or
